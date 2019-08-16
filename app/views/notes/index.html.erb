@@ -1,0 +1,19 @@
+<h1>Note Index</h1>
+
+<table>
+  <tr>
+    <th>Fragrance Name</th>
+    <th>Note</th>
+  </tr>
+<% @notes.each do |note| %>
+  <tr>
+    <td class="note-index_title"><%= note.fragrance.name %></td>
+    <td><%= note.content %></td>
+    <td><%= link_to "Details", note_path(note.id) %>
+    <td><%= link_to "Edit", edit_note_path(note.id) %></td>
+    <td><%= link_to "Delete", note_path(note.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %></td>
+  <tr>
+<% end %>
+</table>
+
+<%= link_to "Note Create", new_note_path %>

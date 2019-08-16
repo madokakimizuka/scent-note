@@ -1,0 +1,61 @@
+<%= form_with(model: @note, local: true) do |form| %>
+  <%# if @note.errors.any? %>
+    <!-- <div id="error_explanation"> -->
+      <!-- <h2><%#= @note.errors.count %><%#= t('view.tell_error') %></h2> -->
+      <!-- <ul> -->
+
+      <%# @note.errors.full_messages.each do |msg| %>
+        <!-- <li><%#= msg %></li> -->
+      <%# end %>
+      <!-- </ul> -->
+    <!-- </div> -->
+  <%# end %>
+
+  <div class="note_group">
+    <%= form.label :fragrance_id %>
+    <%= form.collection_select :fragrance_id, Fragrance.all, :id, :name, {:include_blank => t('view.blank')} %>
+  </div>
+  <div class="note_group">
+    <%= form.label :content %>
+    <%= form.text_field :content ,id: 'content' %>
+  </div>
+  <div class="note_group">
+      <%= form.label :date %>
+      <%= form.date_field :date, id: 'date' %>
+  </div>
+  <div class="note_group">
+    <%= form.label :weather %>
+    <%= form.select :weather, Note.weathers.keys, {:include_blank => t('view.blank')}, id: 'weahter' %>
+  </div>
+  <div class="note_group">
+    <%= form.label :humidity %>
+    <%= form.select :humidity, Note.humidities.keys, {:include_blank => t('view.blank')}, id: 'humidity' %>
+  </div>
+  <div class="note_group">
+    <%= form.label :point %>
+    <%= form.select :point, Note.points.keys, {:include_blank => t('view.blank')}, id: 'humidity' %>
+  </div>
+  <div class="note_group">
+    <%= form.label :scene %>
+    <%= form.select :scene, Note.scenes.keys, {:include_blank => t('view.blank')}, id: 'scene' %>
+  </div>
+  <div class="note_group">
+    <%= form.label :layerd %>
+    <%= form.text_field :layerd ,id: 'layerd' %>
+  </div>
+  <div class="note_group">
+    <%= form.label :want %>
+    <%= form.check_box :want ,id: 'want' %>
+  </div>
+  <div class="note_group">
+  <%= form.label :image %><br>
+  <%= form.file_field :image %>
+  <%= form.hidden_field :image_cache %>
+  </div>
+
+
+
+  <%= form.submit "create" %>
+<% end %><br>
+
+<%= link_to "top", root_path %>
