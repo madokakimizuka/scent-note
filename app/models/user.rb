@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :notes
+  belongs_to :fragrance, optional: true
 
   enum sex: %i( woman man )
   enum age: %i( 10代 20代 30代 40代 50代 60代 70以上 )
