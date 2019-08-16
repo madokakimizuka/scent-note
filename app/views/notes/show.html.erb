@@ -1,0 +1,7 @@
+<h1>Note Details</h1>
+<p>Fragrance Name: <%= @note.fragrance.name %></p>
+<p>内容: <%= @note.content %></p>
+<% if current_user.id == @note.user.id %>
+  <p><%= link_to "Edit Note", edit_note_path(@note.id) %></p>
+  <p><%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% end %>
