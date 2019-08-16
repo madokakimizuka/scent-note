@@ -1,0 +1,2 @@
+class FragrancesController < ApplicationController
+end
