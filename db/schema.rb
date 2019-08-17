@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_16_052514) do
+ActiveRecord::Schema.define(version: 2019_08_17_053703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,13 +101,17 @@ ActiveRecord::Schema.define(version: 2019_08_16_052514) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "signature_fragrance_id"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["signature_fragrance_id"], name: "index_users_on_signature_fragrance_id"
   end
 
   add_foreign_key "notes", "fragrances"
   add_foreign_key "notes", "users"
   add_foreign_key "perfumers", "fragrances", column: "destination_brand_id"
   add_foreign_key "perfumers", "fragrances", column: "masterpiece_id"
+  add_foreign_key "users", "fragrances", column: "signature_fragrance_id"
 end
