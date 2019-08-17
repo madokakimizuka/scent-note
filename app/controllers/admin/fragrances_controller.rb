@@ -1,6 +1,4 @@
-class FragrancesController < ApplicationController
-  before_action :set_fragrance, only: %i[show edit update destroy]
-
+class Admin::FragrancesController < ApplicationController
   def index
     @fragrances = Fragrance.all
   end
@@ -44,7 +42,7 @@ end
     params.require(:fragrance).permit(:fragrance_id, :content, :date, :weather, :humidity, :point, :scene, :layerd, :want, :image)
   end
 
-  def set_fragrance
-    @fragrance = fragrances.find(params[:id])
+  def set_note
+    @note = current_user.notes.find(params[:id])
   end
 end

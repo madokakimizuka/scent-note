@@ -1,0 +1,6 @@
+<h1>Fragrance Details</h1>
+
+
+<% if current_user.admin? %>
+  <li><%= link_to "ユーザー管理画面", edit_admin_fragrance_path(@fragrance_id) %></li>
+<% end %>
