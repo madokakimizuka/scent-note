@@ -1,2 +1,11 @@
 <h1>Brands#index</h1>
-<p>Find me in app/views/brands/index.html.erb</p>
+
+<% @brands.each do |brand| %>
+  <div>
+    <%= link_to brand.name, brand_path(brand.id) %>
+  </div>
+<% end %>
+<br>
+<% if current_user.admin? %>
+  <%= link_to "ブランド作成画面", new_admin_brand_path %>
+<% end %>

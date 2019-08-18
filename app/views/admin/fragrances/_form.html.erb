@@ -1,15 +1,15 @@
 <%= form_with(model: [:admin, @fragrance], local: true) do |form| %>
-  <%# if @fragrance.errors.any? %>
-    <!-- <div id="error_explanation"> -->
-      <!-- <h2><%#= @fragrance.errors.count %><%#= t('view.tell_error') %></h2> -->
-      <!-- <ul> -->
+  <% if @fragrance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @fragrance.errors.count %><%= t('view.tell_error') %></h2>
+      <ul>
 
-      <%# @fragrance.errors.full_messages.each do |msg| %>
-        <!-- <li><%#= msg %></li> -->
-      <%# end %>
-      <!-- </ul> -->
-    <!-- </div> -->
-  <%# end %>
+      <% @fragrance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="fragrance_group">
     <%= form.label :description %>
@@ -62,6 +62,6 @@
   <%= form.submit "create" %>
 <% end %><br>
 
-<%= link_to 'back', fragrances_path %>
+<p><%= link_to 'back', fragrances_path %></p>
 
-<%= link_to "top", root_path %>
+<p><%= link_to "top", root_path %></p>

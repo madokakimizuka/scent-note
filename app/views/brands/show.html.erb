@@ -1,0 +1,13 @@
+<h1>Brand Details</h1>
+<p>Name:<%= @brand.name %></p>
+<p>Founder:<%= @brand.founder %></p>
+<p>Country: <%= @brand.country %></p>
+<p>Found Year: <%= @brand.found_year %></p>
+<p>Concept: <%= @brand.concept %>
+<p><%= link_to 'Official URL', @brand.official %></p>
+
+
+
+<% if current_user.admin? %>
+  <%= link_to "ブランド編集画面", edit_admin_brand_path(@brand.id) %>
+<% end %>

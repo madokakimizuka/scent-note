@@ -4,7 +4,7 @@
   <%= image_tag @fragrance.image.url %>
 <% end %>
 <p>Descriprion: <%= @fragrance.description %></p>
-<p>Brand: <%= link_to @fragrance.brand.name, fragrance_path(@fragrance.brand.id) %></p>
+<p>Brand: <%= link_to @fragrance.brand.name, brand_path(@fragrance.brand.id) %></p>
 <p>Perfumer: <%#= link_to @fragrance.perfumer.name, fragrance_path(@fragrance.perfumer.id) %></p>
 <p>Fragrance Name: <%= @fragrance.name %></p>
 <p>Price: ¥<%= @fragrance.price.to_s(:delimited) %>-</p>
