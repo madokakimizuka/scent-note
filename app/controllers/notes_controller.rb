@@ -27,7 +27,7 @@ class NotesController < ApplicationController
 
   def update
   if @note.update(note_params)
-    redirect_to root_path, notice: "タスクを編集しました!"
+    redirect_to root_path, notice: "noteを編集しました!"
   else
     render 'edit'
   end
@@ -35,7 +35,7 @@ end
 
 def destroy
   @note.destroy
-  redirect_to root_path, notice:"タスクを削除しました!"
+  redirect_to root_path, notice:"noteを削除しました!"
 end
 
 

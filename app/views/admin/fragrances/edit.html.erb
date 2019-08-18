@@ -1,0 +1,5 @@
+<h1>Edit Fragrance</h1>
+
+<%= render 'form' %>
+
+<%= link_to "Delete", admin_fragrance_path(@fragrance.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %>

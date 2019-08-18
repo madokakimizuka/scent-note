@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_17_053703) do
+ActiveRecord::Schema.define(version: 2019_08_18_004313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,10 +34,17 @@ ActiveRecord::Schema.define(version: 2019_08_17_053703) do
     t.text "description"
     t.integer "country_of_origin"
     t.date "release"
+    t.integer "price", default: 0
+    t.text "image"
+    t.string "URL"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "brand_id"
+    t.bigint "perfumer_id"
+    t.index ["brand_id"], name: "index_fragrances_on_brand_id"
     t.index ["country_of_origin"], name: "index_fragrances_on_country_of_origin"
     t.index ["name"], name: "index_fragrances_on_name"
+    t.index ["perfumer_id"], name: "index_fragrances_on_perfumer_id"
     t.index ["type"], name: "index_fragrances_on_type"
   end
 
@@ -109,6 +116,8 @@ ActiveRecord::Schema.define(version: 2019_08_17_053703) do
     t.index ["signature_fragrance_id"], name: "index_users_on_signature_fragrance_id"
   end
 
+  add_foreign_key "fragrances", "brands"
+  add_foreign_key "fragrances", "perfumers"
   add_foreign_key "notes", "fragrances"
   add_foreign_key "notes", "users"
   add_foreign_key "perfumers", "fragrances", column: "destination_brand_id"

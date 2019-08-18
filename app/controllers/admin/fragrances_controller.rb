@@ -1,48 +1,47 @@
 class Admin::FragrancesController < ApplicationController
+  before_action :set_fragrance, only: %i[show edit update destroy]
+
   def index
     @fragrances = Fragrance.all
   end
 
   def new
-    @fragrances = Fragrance.new
+    @fragrance = Fragrance.new
   end
 
   def create
-    @fragrance = current_user.notes.build(note_params)
+    @fragrance = Fragrance.new(fragrance_params)
     if @fragrance.save
-      redirect_to note_path(@fragrance.id), notice:"note を作成しました!"
+      redirect_to fragrance_path(@fragrance.id), notice:"fragrance を作成しました!"
     else
       render 'new'
     end
-  end
-
-  def show
   end
 
   def edit
   end
 
   def update
-  if @fragrance.update(note_params)
-    redirect_to root_path, notice: "タスクを編集しました!"
+  if @fragrance.update(fragrance_params)
+    redirect_to fragrance_path(@fragrance.id), notice: "fragranceを編集しました!"
   else
     render 'edit'
   end
 end
 
 def destroy
-  @note.destroy
-  redirect_to root_path, notice:"タスクを削除しました!"
+  @fragrance.destroy
+  redirect_to fragrances_path, notice:"fragranceを削除しました!"
 end
 
 
   private
 
-  def note_params
-    params.require(:fragrance).permit(:fragrance_id, :content, :date, :weather, :humidity, :point, :scene, :layerd, :want, :image)
+  def fragrance_params
+    params.require(:fragrance).permit(:description, :name, :brand_id, :perfumer_id, :type, :price, :country, :release, :image, :image_cache)
   end
 
-  def set_note
-    @note = current_user.notes.find(params[:id])
+  def set_fragrance
+    @fragrance = Fragrance.find(params[:id])
   end
 end

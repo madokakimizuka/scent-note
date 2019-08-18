@@ -1,0 +1,20 @@
+<h1>Fragrance Index</h1>
+
+<% @fragrances.each do |fragrance| %>
+  <div>
+    <!-- 左のブロック -->
+    <% if fragrance.image.present? %>
+      <%= image_tag fragrance.image.url %>
+    <% end %>
+    <!-- 右のブロック -->
+    <%= fragrance.brand.name %>
+    <%= link_to fragrance.name, fragrance_path(fragrance.id) %>
+    <%= fragrance.release %>
+    ¥<%= fragrance.price.to_s(:delimited) %> -
+  </div>
+<% end %>
+
+
+<% if current_user.admin? %>
+  <%= link_to "香水作成画面", new_admin_fragrance_path %>
+<% end %>

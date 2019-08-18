@@ -1,0 +1,67 @@
+<%= form_with(model: [:admin, @fragrance], local: true) do |form| %>
+  <%# if @fragrance.errors.any? %>
+    <!-- <div id="error_explanation"> -->
+      <!-- <h2><%#= @fragrance.errors.count %><%#= t('view.tell_error') %></h2> -->
+      <!-- <ul> -->
+
+      <%# @fragrance.errors.full_messages.each do |msg| %>
+        <!-- <li><%#= msg %></li> -->
+      <%# end %>
+      <!-- </ul> -->
+    <!-- </div> -->
+  <%# end %>
+
+  <div class="fragrance_group">
+    <%= form.label :description %>
+    <%= form.text_field :description ,id: 'description' %>
+  </div>
+
+  <div class="fragrance_group">
+    <%= form.label :name %>
+    <%= form.text_field :name ,id: 'name' %>
+  </div>
+
+  <div class="fragrance_group">
+    <%= form.label :brand_id %>
+    <%= form.collection_select :brand_id, Brand.all, :id, :name, {:include_blank => t('view.blank')} %>
+  </div>
+
+  <div class="fragrance_group">
+    <%= form.label :perfumer_id %>
+    <%= form.collection_select :perfumer_id, Perfumer.all, :id, :name, {:include_blank => t('view.blank')} %>
+  </div>
+
+  <div class="fragrance_group">
+    <%= form.label :type %>
+    <%= form.select :type, Fragrance.types.keys, {:include_blank => t('view.blank')}, id: 'type' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Price %>
+    ¥<%= form.number_field :price %>-
+  </div>
+  <div class="fragrance_group">
+    <%= form.label :country %>
+    <%= form.country_select :country_code, {:include_blank => t('view.blank')}, id: 'type' %>
+  </div>
+
+
+  <div class="fragrance_group">
+    <%= form.label :release %>
+    <%= form.select :release, (Time.zone.now.year - 100)..(Time.zone.now.year + 30), {:include_blank => t('view.blank')}, id: 'type' %>
+  </div>
+
+  <div class="fragrance_group">
+    <%= form.label :image %><br>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+
+
+
+  <%= form.submit "create" %>
+<% end %><br>
+
+<%= link_to 'back', fragrances_path %>
+
+<%= link_to "top", root_path %>
