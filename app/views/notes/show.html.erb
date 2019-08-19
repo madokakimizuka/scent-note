@@ -1,5 +1,12 @@
 <h1>Note Details</h1>
+<p>
+  Image:
+  <% if @note.picture.present? %>
+    <%= image_tag @note.picture.url %>
+  <% end %>
+</p>
 <!-- <p> @note.image を右側に表示 </p> -->
+
 <p>Fragrance Name: <%= link_to @note.fragrance.name, fragrance_path(@note.fragrance.id) %></p>
 <p>内容: <%= @note.content %></p>
 <% if current_user.id == @note.user.id %>

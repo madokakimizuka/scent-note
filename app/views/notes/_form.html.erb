@@ -1,15 +1,20 @@
 <%= form_with(model: @note, local: true) do |form| %>
-  <%# if @note.errors.any? %>
-    <!-- <div id="error_explanation"> -->
-      <!-- <h2><%#= @note.errors.count %><%#= t('view.tell_error') %></h2> -->
-      <!-- <ul> -->
+  <% if @note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @note.errors.count %><%= t('view.tell_error') %></h2>
+      <ul>
 
-      <%# @note.errors.full_messages.each do |msg| %>
-        <!-- <li><%#= msg %></li> -->
-      <%# end %>
-      <!-- </ul> -->
-    <!-- </div> -->
-  <%# end %>
+      <% @note.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture %>
+  </div>
 
   <div class="note_group">
     <%= form.label :fragrance_id %>
@@ -46,11 +51,6 @@
   <div class="note_group">
     <%= form.label :want %>
     <%= form.check_box :want ,id: 'want' %>
-  </div>
-  <div class="note_group">
-  <%= form.label :image %><br>
-  <%= form.file_field :image %>
-  <%= form.hidden_field :image_cache %>
   </div>
 
 

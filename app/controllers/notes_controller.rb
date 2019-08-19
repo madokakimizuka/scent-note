@@ -27,7 +27,7 @@ class NotesController < ApplicationController
 
   def update
   if @note.update(note_params)
-    redirect_to root_path, notice: "noteを編集しました!"
+    redirect_to note_path(@note.id), notice: "noteを編集しました!"
   else
     render 'edit'
   end
@@ -42,7 +42,7 @@ end
   private
 
   def note_params
-    params.require(:note).permit(:fragrance_id, :content, :date, :weather, :humidity, :point, :scene, :layerd, :want, :image)
+    params.require(:note).permit(:fragrance_id, :content, :date, :weather, :humidity, :point, :scene, :layerd, :want, :picture, :picture_cache)
   end
 
   def set_note
