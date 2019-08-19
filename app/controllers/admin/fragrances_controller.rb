@@ -1,9 +1,5 @@
 class Admin::FragrancesController < ApplicationController
-  before_action :set_fragrance, only: %i[show edit update destroy]
-
-  def index
-    @fragrances = Fragrance.all
-  end
+  before_action :set_fragrance, only: %i[edit update destroy]
 
   def new
     @fragrance = Fragrance.new

@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :fragrances, only: [:index, :show]
   resources :brands, only: [:index, :show]
-  # resources :perfumers
+  resources :perfumers, only: [:index, :show]
 end

@@ -7,7 +7,9 @@
 <p><%= link_to 'Official URL', @brand.official %></p>
 
 
+<br>
+<p><%= link_to "Brands", brands_path %></p>
 
 <% if current_user.admin? %>
-  <%= link_to "ブランド編集画面", edit_admin_brand_path(@brand.id) %>
+  <p><%= link_to "ブランド編集画面", edit_admin_brand_path(@brand.id) %></p>
 <% end %>
