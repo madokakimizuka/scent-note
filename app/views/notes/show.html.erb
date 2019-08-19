@@ -6,8 +6,24 @@
   <% end %>
 </p>
 <!-- <p> @note.image を右側に表示 </p> -->
+<p>Brand: <%= link_to @note.fragrance.brand.name, fragrance_path(@note.fragrance.brand.id) %></p>
+<p>Fragrance: <%= link_to @note.fragrance.name, fragrance_path(@note.fragrance.id) %></p>
 
-<p>Fragrance Name: <%= link_to @note.fragrance.name, fragrance_path(@note.fragrance.id) %></p>
+<!-- purchase の情報をおきたい。 -->
+<!-- 一人のuser, 一つの香水の組み合わせに対して、noteはいくらでも作成できるが、purchaseは一つだけしか作成できないようにしたい。中間テーブル？ -->
+
+<p>Weather: <%= @note.weather %></p>
+<p>Humidity: <%= @note.humidity %>%</p>
+<p>Point: <%= @note.point %></p>
+<p>Layering: <%= @note.layerd %></p>
+<p>Scene: <%= @note.scene %></p>
+<p>Want?: <%= @note.want %></p>
+
+
+
+
+
+
 <p>内容: <%= @note.content %></p>
 <% if current_user.id == @note.user.id %>
   <p><%= link_to "Edit Note", edit_note_path(@note.id) %></p>

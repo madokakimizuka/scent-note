@@ -1,0 +1,35 @@
+<%= form_with(model: @purchase, local: true) do |form| %>
+  <% if @purchase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @purchase.errors.count %><%= t('view.tell_error') %></h2>
+      <ul>
+
+      <% @purchase.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="purchase_group">
+    <%= form.label :where_to_buy %>
+    <%= form.collection_select :where_to_buy, :id 'where_to_buy' %>
+  </div>
+  <div class="purchase_group">
+      <%= form.label :date %>
+      <%= form.date_field :date, id: 'date' %>
+  </div>
+  <div class="purchase_group">
+      <%= form.label :opening_date %>
+      <%= form.date_field :opening_date, id: 'opening_date' %>
+  </div>
+  <div class="purchase_group">
+      <%= form.label :expiration_date %>
+      <%= form.date_field :expiration_date, id: 'expiration_date' %>
+  </div>
+
+
+  <%= form.submit "create" %>
+<% end %><br>
+
+<%= link_to "top", root_path %>
