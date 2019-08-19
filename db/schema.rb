@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_004313) do
     t.integer "scene"
     t.string "layerd"
     t.boolean "want"
-    t.string "image"
+    t.text "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "fragrance_id", null: false
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_004313) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.string "icon"
+    t.text "icon"
     t.integer "favorite_brand_id"
     t.integer "favorite_perfumer_id"
     t.integer "favorite_type"

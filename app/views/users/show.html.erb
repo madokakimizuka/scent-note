@@ -5,6 +5,8 @@
 <% end %>
 <p>メールアドレス: <%= @user.email %></p>
 
+
+
 <% if current_user.id == @user.id %>
   <p><%= link_to "Edit Profile", edit_user_registration_path  %></p>
 <% end %>
@@ -12,7 +14,6 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Image</th>
       <th>Content</th>
     </tr>
   </thead>
@@ -21,7 +22,6 @@
     <%# @user.pictures.each do |picture| %>
       <!-- <tr>
         <td><%#= picture.title %></td>
-        <td><%#= image_tag picture.image.url %></td>
         <td><%#= picture.content %></td>
         <td><%#= link_to '詳細', picture %></td>
         <%# if current_user.id == picture.user.id %>
