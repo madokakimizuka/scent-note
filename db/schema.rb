@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_004313) do
+ActiveRecord::Schema.define(version: 2019_08_19_065134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,10 @@ ActiveRecord::Schema.define(version: 2019_08_18_004313) do
     t.string "where_to_buy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "fragrance_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["fragrance_id"], name: "index_purchases_on_fragrance_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -122,5 +126,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_004313) do
   add_foreign_key "notes", "users"
   add_foreign_key "perfumers", "fragrances", column: "destination_brand_id"
   add_foreign_key "perfumers", "fragrances", column: "masterpiece_id"
+  add_foreign_key "purchases", "fragrances"
+  add_foreign_key "purchases", "users"
   add_foreign_key "users", "fragrances", column: "signature_fragrance_id"
 end

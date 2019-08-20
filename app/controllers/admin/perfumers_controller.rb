@@ -1,4 +1,6 @@
 class Admin::PerfumersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :admin_required
   before_action :set_perfumer, only: %i[edit update destroy]
 
   def new
