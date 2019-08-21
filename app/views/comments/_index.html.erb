@@ -2,7 +2,7 @@
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
       <li>
-        <p><%= comment.content %></p>
+        <p><%= comment.content %>　　　　　　　　　<%= link_to "Delete", note_comment_path(comment.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %></p>
       </li>
     <% end %>
   <% end %>
