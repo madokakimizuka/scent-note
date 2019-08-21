@@ -1,2 +1,27 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<h1><%= @user.name + '詳細' %></h1>
+
+
+<p>ID:<%= @user.id %></p>
+<p>メールアドレス:<%= @user.email %></p>
+<p>管理者権限有無:<%= @user.admin %></p>
+<p>投稿数:<%= @user.notes.length %></p>
+<table>
+  <tr>
+    <th>香水名</th>
+    <th>記録</th>
+    <th>日付</th>
+
+
+  </tr>
+<% @notes.each do |note| %>
+  <tr>
+    <td class="note-index__title"><%= note.fragrance.name %></td>
+    <td><%= note.content %></td>
+    <td><%= note.date %></td>
+  <tr>
+<% end %>
+</table>
+
+<br>
+<p><%= link_to '編集する', edit_admin_user_path(@user.id) %></p>
+<p><%= link_to 'ユーザー一覧', admin_users_path %></p>
