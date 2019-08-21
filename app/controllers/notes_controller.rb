@@ -20,6 +20,8 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
+    @comments = @note.comments
+    @comment = @note.comments.build
   end
 
   def edit
@@ -46,6 +48,6 @@ end
   end
 
   def set_note
-    @note = current_user.notes.find(params[:id])
+    @note = Note.find(params[:id])
   end
 end

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:index, :show]
   root to: 'notes#index'
-  resources :notes, except: :index
+  resources :notes do
+    resources :comments
+  end
 
   resources :fragrances, only: [:index, :show]
   resources :brands, only: [:index, :show]
