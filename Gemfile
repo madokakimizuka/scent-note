@@ -14,6 +14,7 @@ gem 'devise'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
 gem 'country_select', '~> 4.0'
 
 
