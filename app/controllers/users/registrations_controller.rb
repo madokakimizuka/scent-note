@@ -62,8 +62,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def configure_account_update_params
-     devise_parameter_sanitizer.permit(:account_update, keys: [:name]) //追加した
-     devise_parameter_sanitizer.permit(:account_update, keys: [:description]) //追加した
-     devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :icon, :icon_cache, :favorite_brand_id, :favorite_perfumer_id, :faborite_type, :prefecture, :sex, :age, :description])
+     # devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
    end
 end

@@ -8,20 +8,23 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'pry-rails'
-gem 'better_errors'
-gem 'binding_of_caller'
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
+gem 'mini_magick'
 gem 'devise'
 gem 'omniauth-twitter'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'country_select', '~> 4.0'
 
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development do

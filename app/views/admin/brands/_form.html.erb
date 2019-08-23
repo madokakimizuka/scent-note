@@ -1,0 +1,52 @@
+<%= form_with(model: [:admin, @brand], local: true) do |form| %>
+  <% if @brand.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @brand.errors.count %><%= t('view.tell_error') %></h2>
+      <ul>
+
+        <% @brand.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="brand_group">
+    <%= form.label :concept %>
+    <%= form.text_area :concept, id: 'concept' %>
+  </div>
+
+  <div class="brand_group">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: 'name' %>
+  </div>
+
+  <div class="brand_group">
+    <%= form.label :founder %>
+    <%= form.text_field :founder, id: 'founder' %>
+  </div>
+
+  <div class="brand_group">
+    <%= form.label :country %>
+    <%= form.country_select :country_code, {:include_blank => t('view.blank')}, id: 'type' %>
+  </div>
+
+  <div class="brand_group">
+    <%= form.label :found_year %>
+    <%= form.select :found_year, (Time.zone.now.year - 150)..(Time.zone.now.year + 30), {:include_blank => t('view.blank')}, id: 'release' %>
+  </div>
+
+  <div class="brand_group">
+    <%= form.label :Official %>
+    <%= form.text_field :official %>
+  </div>
+
+
+
+
+  <%= form.submit "create" %>
+<% end %><br>
+
+<p><%= link_to 'ブランド一覧', brands_path %></p>
+
+<p><%= link_to '記録一覧', root_path %></p>

@@ -6,4 +6,6 @@ class Note < ApplicationRecord
   enum humidity: %i( high middle low )
   enum point: %i( neck elbow wrist ancle )
   enum scene: %i( ontime business party )
+
+  mount_uploader :picture, PictureUploader
 end

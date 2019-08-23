@@ -1,0 +1,20 @@
+<h1>Fragrance Details</h1>
+<!-- imageがない時用のimageを表示させたい。デフォルトで設定？ -->
+<% if @fragrance.image.present? %>
+  <%= image_tag @fragrance.image.url %>
+<% end %>
+<p>Descriprion: <%= @fragrance.description %></p>
+<p>Brand: <%= link_to @fragrance.brand.name, brand_path(@fragrance.brand.id) %></p>
+<p>Perfumer: <%#= link_to @fragrance.perfumer.name, fragrance_path(@fragrance.perfumer.id) %></p>
+<p>Fragrance Name: <%= @fragrance.name %></p>
+<p>Price: ¥<%= @fragrance.price.to_s(:delimited) %>-</p>
+<p>Country: <%= @fragrance.country_of_origin %></p>
+<p>URL: <%= @fragrance.URL %></p>
+
+
+
+<!-- この香水に関するnote最新三つを表示できるようにする -->
+<p><%= link_to "Fragrances", fragrances_paths %>
+<% if current_user.admin? %>
+  <p><%= link_to "香水編集画面", edit_admin_fragrance_path(@fragrance.id) %></p>
+<% end %>

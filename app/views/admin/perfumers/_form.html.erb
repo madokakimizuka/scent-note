@@ -1,0 +1,45 @@
+<%= form_with(model: [:admin, @perfumer], local: true) do |form| %>
+  <% if @perfumer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @perfumer.errors.count %><%= t('view.tell_error') %></h2>
+      <ul>
+
+      <% @perfumer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="perfumer_group">
+    <%= form.label :Thought %>
+    <%= form.text_area :thought ,id: 'thought' %>
+  </div>
+
+  <div class="perfumer_group">
+    <%= form.label :name %>
+    <%= form.text_field :name ,id: 'name' %>
+  </div>
+
+  <div class="perfumer_group">
+    <%= form.label :destination_brand %>
+    <%= form.collection_select :destination_brand_id, Brand.all, :id, :name, {:include_blank => t('view.blank')} %>
+  </div>
+
+  <div class="perfumer_group">
+    <%= form.label :Masterpiece %>
+    <%= form.collection_select :masterpiece_id, Fragrance.all, :id, :name, {:include_blank => t('view.blank')} %>
+  </div>
+
+  </div>
+  <div class="perfumer_group">
+    <%= form.label :country %>
+    <%= form.country_select :country_code, {:include_blank => t('view.blank')}, id: 'type' %>
+  </div>
+
+  <%= form.submit "create" %>
+<% end %><br>
+
+<p><%= link_to 'back', perfumers_path %></p>
+
+<p><%= link_to "top", root_path %></p>

@@ -1,0 +1,16 @@
+<h1>Perfumer Details</h1>
+
+
+<p>Perfumer: <%= @perfumer.name %></p>
+<p>Destination Brand: <%= link_to @brand.name, brand_path(@brand.id) if @brand.present? %></p>
+<p>Masterpice: <%= link_to @fragrane.name, fragrance_path(@perfumer.masterpiece_id) if @fragrance.present? %></p>
+<p>Country: <%= @perfumer.country %></p>
+<p>Thought: <%= @perfumer.thought %></p>
+
+
+<!-- 手掛けた香水をアルファベット順に折りたたんで表示できるといい？ -->
+<p><%= link_to "Perfumers", perfumers_path %></p>
+
+<% if current_user.admin? %>
+  <p><%= link_to "調香師編集画面", edit_admin_perfumer_path(@perfumer.id) %></p>
+<% end %>

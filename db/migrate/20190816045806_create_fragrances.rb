@@ -6,6 +6,9 @@ class CreateFragrances < ActiveRecord::Migration[5.2]
       t.text :description
       t.integer :country_of_origin, index: true
       t.date :release
+      t.integer :price, default: 000
+      t.text :image
+      t.string :URL
 
       t.timestamps
     end

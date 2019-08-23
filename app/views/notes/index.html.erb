@@ -1,14 +1,26 @@
 <h1>Note Index</h1>
 
+<%= link_to "Fragrances", fragrances_path %>
+<%= link_to "Brands", brands_path %>
+<%= link_to "Perfumers", perfumers_path %>
+
+<% if current_user.admin? %>
+
+<%= link_to "ユーザー管理画面", admin_users_path %>
+
+<% end %>
+
 <table>
   <tr>
     <th>Fragrance Name</th>
     <th>Note</th>
+    <th>UserName</th>
   </tr>
 <% @notes.each do |note| %>
   <tr>
     <td class="note-index_title"><%= note.fragrance.name %></td>
     <td><%= note.content %></td>
+    <td><%= note.user.name %></td>
     <td><%= link_to "Details", note_path(note.id) %>
     <td><%= link_to "Edit", edit_note_path(note.id) %></td>
     <td><%= link_to "Delete", note_path(note.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %></td>

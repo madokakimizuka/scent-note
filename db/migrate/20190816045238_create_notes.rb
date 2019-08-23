@@ -9,7 +9,7 @@ class CreateNotes < ActiveRecord::Migration[5.2]
       t.integer :scene, index: true
       t.string :layerd
       t.boolean :want
-      t.string :image
+      t.text :picture
 
       t.timestamps
     end

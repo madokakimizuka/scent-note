@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       # for my application
       t.string :name, index: true, null: false
-      t.string :icon
+      t.text :icon
       t.integer :favorite_brand_id
       t.integer :favorite_perfumer_id
       t.integer :favorite_type
