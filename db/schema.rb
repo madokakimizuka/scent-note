@@ -57,6 +57,10 @@ ActiveRecord::Schema.define(version: 2019_08_21_064509) do
   end
 
   create_table "notes", force: :cascade do |t|
+     # 重い軽い
+     # 浮かんだイメージの言葉を選択できる。　
+     # タグ　検索
+     # 香りの強さ
     t.text "content"
     t.date "date"
     t.integer "weather"
@@ -64,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_064509) do
     t.integer "point"
     t.integer "scene"
     t.string "layerd"
-    t.boolean "want"
+    t.boolean "want"　
     t.text "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -105,6 +109,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_064509) do
   end
 
   create_table "users", force: :cascade do |t|
+    # 肌の香りタイプ
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
