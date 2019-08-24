@@ -15,6 +15,6 @@
 <% end %>
 
 
-<% if currennt_user.present? && current_user.admin? %>
+<% if current_user.present? && current_user.admin? %>
   <%= link_to "香水作成画面", new_admin_fragrance_path %>
 <% end %>
