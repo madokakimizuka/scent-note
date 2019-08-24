@@ -16,11 +16,11 @@
 #
 # User.create!(name: "aaa", email: "aaa@example.com", password: "aaaaaa", admin: true )
 # User.create!(name: "bbb", email: "bbb@example.com", password: "bbbbbb" )
-User.create!(name: "ccc", email: "ccc@example.com", password: "cccccc" )
+# User.create!(name: "ccc", email: "ccc@example.com", password: "cccccc" )
 
-# Note.create!(user: User.find(1), fragrance: Fragrance.find(2), content: "test", weather: 0.to_i, humidity: 2.to_i, point: 11.to_i, scene: 4.to_i, want: true)
-# Note.create!(user: User.find(2), fragrance: Fragrance.find(8), content: "test", weather: 0.to_i, humidity: 2.to_i, point: 2.to_i, scene: 0.to_i, want: false )
-# Note.create!(user: User.find(1), fragrance: Fragrance.find(5), content: "test", weather: 1.to_i, humidity: 0.to_i, point: 2.to_i, scene: 2.to_i, want: true)
+Note.create!(user: User.find(1), fragrance: Fragrance.find(2), content: "test", weather: 0.to_i, humidity: 2.to_i, point: 11.to_i, scene: 4.to_i, want: true)
+Note.create!(user: User.find(2), fragrance: Fragrance.find(8), content: "test", weather: 0.to_i, humidity: 2.to_i, point: 2.to_i, scene: 0.to_i, want: false )
+Note.create!(user: User.find(1), fragrance: Fragrance.find(5), content: "test", weather: 1.to_i, humidity: 0.to_i, point: 2.to_i, scene: 2.to_i, want: true)
 Note.create!(user: User.find(3), fragrance: Fragrance.find(7), content: "test", weather: 0.to_i, humidity: 0.to_i, point: 7.to_i, scene: 4.to_i, want: false )
 Note.create!(user: User.find(2), fragrance: Fragrance.find(2), content: "test", weather: 1.to_i, humidity: 1.to_i, point: 5.to_i, scene: 0.to_i, want: false )
 Note.create!(user: User.find(3), fragrance: Fragrance.find(1), content: "test", weather: 5.to_i, humidity: 2.to_i, point: 2.to_i, scene: 1.to_i, want: false )
