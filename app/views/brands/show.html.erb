@@ -10,6 +10,6 @@
 <br>
 <p><%= link_to "Brands", brands_path %></p>
 
-<% if current_user.admin? %>
+<% if current_user.present? && current_user.admin? %>
   <p><%= link_to "ブランド編集画面", edit_admin_brand_path(@brand.id) %></p>
 <% end %>

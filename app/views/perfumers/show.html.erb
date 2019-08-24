@@ -11,6 +11,6 @@
 <!-- 手掛けた香水をアルファベット順に折りたたんで表示できるといい？ -->
 <p><%= link_to "Perfumers", perfumers_path %></p>
 
-<% if current_user.admin? %>
+<% if current_user.present? && current_user.admin? %>
   <p><%= link_to "調香師編集画面", edit_admin_perfumer_path(@perfumer.id) %></p>
 <% end %>

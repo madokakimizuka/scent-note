@@ -14,7 +14,7 @@
 
 
 <!-- この香水に関するnote最新三つを表示できるようにする -->
-<p><%= link_to "Fragrances", fragrances_paths %>
-<% if current_user.admin? %>
+<p><%= link_to "Fragrances", fragrances_path %>
+<% if current_user.present? && current_user.admin? %>
   <p><%= link_to "香水編集画面", edit_admin_fragrance_path(@fragrance.id) %></p>
 <% end %>
