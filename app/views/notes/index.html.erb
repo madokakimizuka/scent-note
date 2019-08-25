@@ -1,14 +1,19 @@
 <h1>Note Index</h1>
+<div class="index">
+  <p>
+    <%= link_to "Fragrances", fragrances_path %>
+    <%= link_to "Brands", brands_path %>
+    <%= link_to "Perfumers", perfumers_path %>
+  </p>
+</div>
 
-<%= link_to "Fragrances", fragrances_path %>
-<%= link_to "Brands", brands_path %>
-<%= link_to "Perfumers", perfumers_path %>
-
-<% if current_user.present? && current_user.admin? %>
-
-<%= link_to "ユーザー管理画面", admin_users_path %>
-
-<% end %>
+<div class="management">
+  <p>
+    <% if current_user.present? && current_user.admin? %>
+      <%= link_to "ユーザー管理画面", admin_users_path %>
+    <% end %>
+  </p>
+</div>
 
 <table>
   <tr>
@@ -28,4 +33,8 @@
 <% end %>
 </table>
 
-<%= link_to "Note Create", new_note_path %>
+
+
+<p><#= paginate @notes %></p>
+
+<p><%= link_to "Note Create", new_note_path %></p>
