@@ -3,6 +3,8 @@ class Fragrance < ApplicationRecord
   has_many :users
   belongs_to :brand
   belongs_to :perfumer, optional: true
+  has_many :labels, through: :labelings
+  has_many :labelings, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 

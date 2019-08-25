@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_065134) do
+ActiveRecord::Schema.define(version: 2019_08_25_061936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,23 @@ ActiveRecord::Schema.define(version: 2019_08_19_065134) do
     t.index ["name"], name: "index_fragrances_on_name"
     t.index ["perfumer_id"], name: "index_fragrances_on_perfumer_id"
     t.index ["type"], name: "index_fragrances_on_type"
+  end
+
+  create_table "labelings", force: :cascade do |t|
+    t.integer "fragrance_id"
+    t.integer "label_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fragrance_id", "label_id"], name: "index_labelings_on_fragrance_id_and_label_id", unique: true
+    t.index ["fragrance_id"], name: "index_labelings_on_fragrance_id"
+    t.index ["label_id"], name: "index_labelings_on_label_id"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_labels_on_name", unique: true
   end
 
   create_table "notes", force: :cascade do |t|
