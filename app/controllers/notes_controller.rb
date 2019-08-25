@@ -21,23 +21,25 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
+    @comments = @note.comments
+    @comment = @note.comments.build
   end
 
   def edit
   end
 
   def update
-  if @note.update(note_params)
-    redirect_to note_path(@note.id), notice: "noteを編集しました!"
-  else
-    render 'edit'
+    if @note.update(note_params)
+      redirect_to note_path(@note.id), notice: "noteを編集しました!"
+    else
+      render 'edit'
+    end
   end
-end
 
-def destroy
-  @note.destroy
-  redirect_to root_path, notice:"noteを削除しました!"
-end
+  def destroy
+    @note.destroy
+    redirect_to root_path, notice:"noteを削除しました!"
+  end
 
 
   private

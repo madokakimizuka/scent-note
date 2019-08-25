@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 2019_08_25_061936) do
     t.index ["name"], name: "index_brands_on_name"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "note_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_comments_on_note_id"
+  end
+
   create_table "fragrances", force: :cascade do |t|
     t.string "name", null: false
     t.integer "type"
@@ -66,6 +74,10 @@ ActiveRecord::Schema.define(version: 2019_08_25_061936) do
   end
 
   create_table "notes", force: :cascade do |t|
+     # 重い軽い
+     # 浮かんだイメージの言葉を選択できる。　
+     # タグ　検索
+     # 香りの強さ
     t.text "content"
     t.date "date"
     t.integer "weather"
@@ -73,7 +85,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_061936) do
     t.integer "point"
     t.integer "scene"
     t.string "layerd"
-    t.boolean "want"
+    t.boolean "want"　
     t.text "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -114,6 +126,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_061936) do
   end
 
   create_table "users", force: :cascade do |t|
+    # 肌の香りタイプ
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -137,6 +150,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_061936) do
     t.index ["signature_fragrance_id"], name: "index_users_on_signature_fragrance_id"
   end
 
+  add_foreign_key "comments", "notes"
   add_foreign_key "fragrances", "brands"
   add_foreign_key "fragrances", "perfumers"
   add_foreign_key "notes", "fragrances"

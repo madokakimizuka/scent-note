@@ -1,6 +1,7 @@
 class Note < ApplicationRecord
   belongs_to :fragrance
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   enum weather: %i( sunny rainy cloudy stormy snowy foggy)
   enum humidity: %i( high middle low )
