@@ -23,9 +23,15 @@
 
 
 
-
 <p>内容: <%= @note.content %></p>
 <% if current_user.present? && current_user.id == @note.user.id %>
   <p><%= link_to "Edit Note", edit_note_path(@note.id) %></p>
   <p><%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <% end %>
+
+<p>コメント一覧</p>
+
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments, note: @note } %>
+</div>
+<%= render partial: 'comments/form', locals: { comment: @comment, note: @note } %>

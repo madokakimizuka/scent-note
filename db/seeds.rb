@@ -29,3 +29,4 @@ Note.create!(user: User.find(2), fragrance: Fragrance.find(2), content: "test", 
 Note.create!(user: User.find(3), fragrance: Fragrance.find(3), content: "test", weather: 1.to_i, humidity: 1.to_i, point: 2.to_i, scene: 1.to_i, want: false )
 Note.create!(user: User.find(2), fragrance: Fragrance.find(3), content: "test", weather: 2.to_i, humidity: 1.to_i, point: 4.to_i, scene: 0.to_i, want: true)
 Note.create!(user: User.find(3), fragrance: Fragrance.find(4), content: "test", weather: 2.to_i, humidity: 2.to_i, point: 4.to_i, scene: 0.to_i, want: true)
+
