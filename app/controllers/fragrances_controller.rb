@@ -9,5 +9,7 @@ class FragrancesController < ApplicationController
 
   def show
     @fragrance = Fragrance.find(params[:id])
+    @notes = @fragrance.notes
+    
   end
 end

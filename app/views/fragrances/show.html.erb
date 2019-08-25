@@ -15,10 +15,6 @@
 
 <!-- この香水に関するnote最新三つを表示できるようにする -->
 
-<div id="labels_area">
-  <%= render partial: 'comments/index', locals: { comments: @comments, note: @note } %>
-</div>
-<%= render partial: 'comments/form', locals: { comment: @comment, note: @note } %>
 
 
 <p><%= link_to "Fragrances", fragrances_path %>

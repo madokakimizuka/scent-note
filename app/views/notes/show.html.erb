@@ -18,6 +18,13 @@
 <p>Layering: <%= @note.layerd %></p>
 <p>Scene: <%= @note.scene %></p>
 <p>Want?: <%= @note.want %></p>
+<p>labels:
+  <% if @labels.present? %>
+  <% @labels.each do |label| %>
+    <%= label.name %>
+  <% end %>
+  <% end %>
+</p>
 
 
 

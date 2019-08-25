@@ -21,6 +21,9 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
+    if @note.label_ids.present?
+      @labels = Label.find(@note.label_ids)
+    end
     @comments = @note.comments
     @comment = @note.comments.build
   end
@@ -45,7 +48,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:fragrance_id, :content, :date, :weather, :humidity, :point, :scene, :layerd, :want, :picture, :picture_cache)
+    params.require(:note).permit(:fragrance_id, :content, :date, :weather, :humidity, :point, :scene, :layerd, :want, :picture, :picture_cache, label_ids: [])
   end
 
   def set_note
