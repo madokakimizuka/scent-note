@@ -3,10 +3,10 @@ class Note < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
 
-  enum weather: %i( Sunny PartlyCludy Rainy Cloudy Foggy Snowy)
+  enum weather: %i( sunny rainy cloudy stormy snowy foggy)
   enum humidity: %i( high middle low )
-  enum point: %i( neck elbow wrist ancle )
-  enum scene: %i( ontime business party )
+  enum point: %i( neck elbow wrist ancle waist back thigh knee heel sole shoulder chest )
+  enum scene: %i( ontime business party night morning )
 
   mount_uploader :picture, PictureUploader
 end

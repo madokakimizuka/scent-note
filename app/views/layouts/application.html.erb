@@ -10,29 +10,32 @@
   </head>
 
   <body>
-    <header>
-      <div class="container-fluid">
-        <nav>
-          <% if user_signed_in? %>
-            <%= link_to 'Top', root_path %>
-            <%= link_to 'My Page', user_path(current_user.id) %>
-            <%= link_to 'Edit Profile', edit_user_registration_path %>
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to "Top", root_path %>
-            <%= link_to 'Signup', new_user_registration_path %>
-            <%= link_to 'Login', new_user_session_path %>
-          <% end %>
-        </nav>
-      </div>
-    </header>
+    <div class="header clearfix">
+      <nav>
+        <% if user_signed_in? %>
+          <%= link_to 'Top', root_path %>
+          <%= link_to 'My Page', user_path(current_user.id) %>
+          <%= link_to 'Edit Profile', edit_user_registration_path %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Top", root_path %>
+          <%= link_to 'Signup', new_user_registration_path %>
+          <%= link_to 'Login', new_user_session_path %>
+        <% end %>
+      </nav>
+    </div>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div><%= yield %></div>
+    <div class="container-fluid">
+      <div><%= yield %></div>
+    </div>
 
 
+    <div class="footer">
+      2019 ScentNote
+    </div>
 
   </body>
 </html>

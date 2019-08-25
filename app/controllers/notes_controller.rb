@@ -2,7 +2,8 @@ class NotesController < ApplicationController
   before_action :set_note, only: %i[show edit update destroy]
 
   def index
-    @notes = Note.all
+    @notes = Note.all.page(params[:page]).per(18)
+
   end
 
   def new

@@ -13,14 +13,18 @@
 <!-- 一人のuser, 一つの香水の組み合わせに対して、noteはいくらでも作成できるが、purchaseは一つだけしか作成できないようにしたい。中間テーブル？ -->
 
 <p>Weather: <%= @note.weather %></p>
-<p>Humidity: <%= @note.humidity %>%</p>
+<p>Humidity: <%= @note.humidity %></p>
 <p>Point: <%= @note.point %></p>
 <p>Layering: <%= @note.layerd %></p>
 <p>Scene: <%= @note.scene %></p>
 <p>Want?: <%= @note.want %></p>
 
-<p>Content: <%= @note.content %></p>
-<% if current_user.id == @note.user.id %>
+
+
+
+
+<p>内容: <%= @note.content %></p>
+<% if current_user.present? && current_user.id == @note.user.id %>
   <p><%= link_to "Edit Note", edit_note_path(@note.id) %></p>
   <p><%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <% end %>

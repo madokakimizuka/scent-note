@@ -11,10 +11,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'mini_magick'
 gem 'devise'
-gem 'omniauth-twitter'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'ransack'
+gem 'kaminari'
 gem 'country_select', '~> 4.0'
 
 
