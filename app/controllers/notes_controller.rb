@@ -4,7 +4,6 @@ class NotesController < ApplicationController
 
   def index
     @notes = Note.all.page(params[:page]).per(18)
-
   end
 
   def new

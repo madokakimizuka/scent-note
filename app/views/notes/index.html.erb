@@ -35,8 +35,6 @@
 <% end %>
 </table>
 
-
-
 <p><%= paginate @notes %></p>
 <% if current_user.present? %>
   <p><%= link_to "Note Create", new_note_path %></p>
