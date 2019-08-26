@@ -19,18 +19,19 @@ class Admin::PerfumersController < ApplicationController
   def edit
   end
 
-  def update
-  if @perfumer.update(perfumer_params)
-    redirect_to perfumer_path(@perfumer.id), notice: "perfumerを編集しました!"
-  else
-    render 'edit'
-  end
-end
 
-def destroy
-  @perfumer.destroy
-  redirect_to perfumers_path, notice:"perfumerを削除しました!"
-end
+  def update
+    if @perfumer.update(perfumer_params)
+      redirect_to perfumer_path(@perfumer.id), notice: "perfumerを編集しました!"
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @perfumer.destroy
+    redirect_to perfumers_path, notice:"perfumerを削除しました!"
+  end
 
 
   private

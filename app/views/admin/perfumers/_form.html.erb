@@ -1,7 +1,7 @@
 <%= form_with(model: [:admin, @perfumer], local: true) do |form| %>
   <% if @perfumer.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @perfumer.errors.count, "error" %>prohibited this property from being saved:</h2>
+      <h2><%= @perfumer.errors.count "error" %>prohibited this property from being saved:</h2>
       <ul>
 
       <% @perfumer.errors.full_messages.each do |msg| %>
@@ -34,7 +34,7 @@
   </div>
   <div class="perfumer_group">
     <%= form.label :country %>
-    <%= form.country_select :country_code, {:include_blank => ''}, id: 'type' %>
+    <%= form.country_select :country, {:include_blank => ''}, id: 'country' %>
   </div>
 
   <%= form.submit "create" %>

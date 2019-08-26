@@ -11,12 +11,15 @@ gem 'uglifier', '>= 1.3.0'
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'mini_magick'
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'ransack'
 gem 'kaminari'
 gem 'country_select', '~> 4.0'
+
 
 
 gem 'bootsnap', '>= 1.1.0', require: false

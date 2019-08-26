@@ -1,12 +1,12 @@
-<h1>Fragrance Index</h1>
+<h1>香水一覧</h1>
 
 
 <%= search_form_for @q do |f| %>
   <%# ブランド名でも検索できるようにしたい %>
-  <%= f.label :name, "Name Search" %>
+  <%= f.label :name, "名称検索" %>
   <%= f.search_field :name_cont %>
 
-  <%= f.submit "Search" %>
+  <%= f.submit "検索" %>
 <% end %>
 
 <% @fragrances.each do |fragrance| %>
@@ -19,7 +19,7 @@
     <%= fragrance.brand.name %>
     <%= link_to fragrance.name, fragrance_path(fragrance.id) %>
     <%= fragrance.release %>
-    ¥<%= fragrance.price.to_s(:delimited) %> -
+    ¥<%= fragrance.price.to_s(:delimited) %> -(税別)
   </div>
 <% end %>
 
