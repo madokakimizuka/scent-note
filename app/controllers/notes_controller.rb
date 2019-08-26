@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_note, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
 
   def index
     @notes = Note.all.page(params[:page]).per(18)

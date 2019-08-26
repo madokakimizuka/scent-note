@@ -20,27 +20,27 @@
 
   <div class="field">
     <%= f.label :sex %>
-    <%= f.select :sex, User.sexes.keys, {:include_blank => t('view.blank')}, id: 'sex' %>
+    <%= f.select :sex, User.sexes.keys, {:include_blank => ''}, id: 'sex' %>
   </div>
 
   <div class="field">
     <%= f.label :age %>
-    <%= f.select :age, User.ages.keys, {:include_blank => t('view.blank')}, id: 'age' %>
+    <%= f.select :age, User.ages.keys, {:include_blank => ''}, id: 'age' %>
   </div>
 
   <div class="field">
     <%= f.label :favorite_type %>
-    <%= f.select :favorite_type, User.favorite_types.keys, {:include_blank => t('view.blank')}, id: 'favorite_type' %>
+    <%= f.select :favorite_type, User.favorite_types.keys, {:include_blank => ''}, id: 'favorite_type' %>
   </div>
 
   <div class="field">
     <%= f.label :prefecture %>
-    <%= f.select :prefecture, User.prefectures.keys, {:include_blank => t('view.blank')}, id: 'prefecture' %>
+    <%= f.select :prefecture, User.prefectures.keys, {:include_blank => ''}, id: 'prefecture' %>
   </div>
 
   <div class="field">
     <%= f.label :signature_fragrance_id %>
-    <%= f.collection_select :signature_fragrance_id, Fragrance.all, :id, :name, {:include_blank => t('view.blank')} %>
+    <%= f.collection_select :signature_fragrance_id, Fragrance.all, :id, :name, {:include_blank => ''} %>
   </div>
 
 

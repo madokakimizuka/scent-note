@@ -1,10 +1,9 @@
 <h1><%= @user.name + '詳細' %></h1>
 
 
-<p>ID:<%= @user.id %></p>
-<p>メールアドレス:<%= @user.email %></p>
-<p>管理者権限有無:<%= @user.admin %></p>
-<p>投稿数:<%= @user.notes.length %></p>
+<p>メールアドレス：<%= @user.email %></p>
+<p>管理者権限：<%= @user.admin ? '有' : '無' %></p>
+<p>投稿数：<%= @user.notes.length %></p>
 <table>
   <tr>
     <th>香水名</th>

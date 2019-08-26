@@ -1,7 +1,7 @@
 <%= form_with(model: [:admin, @brand], local: true) do |form| %>
   <% if @brand.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @brand.errors.count %><%= t('view.tell_error') %></h2>
+      <h2><%= @brand.errors.count, "error" %>prohibited this property from being saved:</h2>
       <ul>
 
         <% @brand.errors.full_messages.each do |msg| %>
@@ -28,12 +28,12 @@
 
   <div class="brand_group">
     <%= form.label :country %>
-    <%= form.country_select :country_code, {:include_blank => t('view.blank')}, id: 'type' %>
+    <%= form.country_select :country_code, {:include_blank => ''}, id: 'type' %>
   </div>
 
   <div class="brand_group">
     <%= form.label :found_year %>
-    <%= form.select :found_year, (Time.zone.now.year - 150)..(Time.zone.now.year + 30), {:include_blank => t('view.blank')}, id: 'release' %>
+    <%= form.select :found_year, (Time.zone.now.year - 150)..(Time.zone.now.year + 30), {:include_blank => ''}, id: 'release' %>
   </div>
 
   <div class="brand_group">

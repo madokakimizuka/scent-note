@@ -27,8 +27,10 @@
     <td><%= note.content %></td>
     <td><%= note.user.name %></td>
     <td><%= link_to "Details", note_path(note.id) %>
-    <td><%= link_to "Edit", edit_note_path(note.id) %></td>
-    <td><%= link_to "Delete", note_path(note.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %></td>
+    <% if current_user.present? %>
+      <td><%= link_to "Edit", edit_note_path(note.id) %></td>
+      <td><%= link_to "Delete", note_path(note.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %></td>
+    <% end %>
   <tr>
 <% end %>
 </table>
@@ -36,5 +38,6 @@
 
 
 <p><%= paginate @notes %></p>
-
-<p><%= link_to "Note Create", new_note_path %></p>
+<% if current_user.present? %>
+  <p><%= link_to "Note Create", new_note_path %></p>
+<% end %>

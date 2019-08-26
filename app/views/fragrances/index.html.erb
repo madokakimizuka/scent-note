@@ -6,7 +6,7 @@
   <%= f.label :name, "Name Search" %>
   <%= f.search_field :name_cont %>
 
-  <%= f.submit "検索" %>
+  <%= f.submit "Search" %>
 <% end %>
 
 <% @fragrances.each do |fragrance| %>
@@ -23,7 +23,6 @@
   </div>
 <% end %>
 
-<p><%= link_to "Index", fragrances_path %></p>
 <% if current_user.present? && current_user.admin? %>
   <%= link_to "香水作成画面", new_admin_fragrance_path %>
 <% end %>

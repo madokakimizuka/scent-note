@@ -17,20 +17,17 @@
 <p>Point: <%= @note.point %></p>
 <p>Layering: <%= @note.layerd %></p>
 <p>Scene: <%= @note.scene %></p>
-<p>Want?: <%= @note.want %></p>
+<p>Want?: <%= @note.want ? 'Yes' : 'No' %></p>
 <p>labels:
   <% if @labels.present? %>
-  <% @labels.each do |label| %>
-    <%= label.name %>
-  <% end %>
+    <% @labels.each do |label| %>
+      <%= label.name %>
+    <% end %>
   <% end %>
 </p>
+<p>content: <%= @note.content %></p>
+<p>user: <%= link_to @note.user.name, user_path(@note.user.id) %>
 
-
-
-
-
-<p>内容: <%= @note.content %></p>
 <% if current_user.present? && current_user.id == @note.user.id %>
   <p><%= link_to "Edit Note", edit_note_path(@note.id) %></p>
   <p><%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %></p>

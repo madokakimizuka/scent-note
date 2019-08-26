@@ -1,13 +1,17 @@
 <h1><%= @user.name %>'s Profile</h1>
 
 <% if @user.icon.present? %>
-  <p><%= image_tag @user.icon.url %></p>
+  <p><%= image_tag(@user.icon.url) %></p>
+
+
+
+  <p><%#= image_tag @user.icon.url %></p>
 <% end %>
 <p>メールアドレス: <%= @user.email %></p>
 
 
 
-<% if current_user.id == @user.id %>
+<% if current_user.present? && current_user.id == @user.id %>
   <p><%= link_to "Edit Profile", edit_user_registration_path  %></p>
 <% end %>
 <!-- <table>
@@ -33,6 +37,8 @@
   </tbody>
 </table>
 <br> -->
-<%= link_to "Create Note", new_note_path %>
+<% if current_user.present? && current_user.id == @user.id %>
+  <%= link_to "Create Note", new_note_path %>
+<% end %>
 <%#= link_to "投稿一覧", pictures_path %>
 <%#= link_to "お気に入り一覧", favorites_path %>
