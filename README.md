@@ -35,14 +35,14 @@ Postgresql 11.2
 (https://docs.google.com/spreadsheets/d/1fvvd2hUMWQ2sHrdhj15Y_yvZwSpFARmr0UW1aSyboGw/edit?usp=sharing)
 ### ER図
 ---
-(https://cacoo.com/diagrams/No7hOHXi5AkgbGvF/51A2B)
+(https://docs.google.com/spreadsheets/d/1fvvd2hUMWQ2sHrdhj15Y_yvZwSpFARmr0UW1aSyboGw/edit#gid=402658823)
 
 ### 画面遷移図
 ---
-(https://cacoo.com/diagrams/lu0ChhISPumseYp0/19354)
+(https://docs.google.com/spreadsheets/d/1fvvd2hUMWQ2sHrdhj15Y_yvZwSpFARmr0UW1aSyboGw/edit#gid=1961325601)
 ### 画面ワイヤーフレーム
 ---
-[ログイン \| オンライン作図ツール Cacoo(カクー)](https://cacoo.com/diagrams/lSZPXdXc96AjZdDS/1F6FF)
+(https://docs.google.com/spreadsheets/d/1fvvd2hUMWQ2sHrdhj15Y_yvZwSpFARmr0UW1aSyboGw/edit#gid=1167721662)
 ### 使用予定Gem
 ---
 - device

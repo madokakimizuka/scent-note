@@ -3,12 +3,12 @@
 <% if @fragrance.image.present? %>
   <%= image_tag @fragrance.image.url %>
 <% end %>
-<p>説明: <%= @fragrance.description %></p>
-<p>ブランド: <%= link_to @fragrance.brand.name, brand_path(@fragrance.brand.id) %></p>
-<p>調香師: <%#= link_to @fragrance.perfumer.name, fragrance_path(@fragrance.perfumer.id) %></p>
-<p>名前: <%= @fragrance.name %></p>
-<p>本体価格: ¥<%= @fragrance.price.to_s(:delimited) %>-</p>
-<p>生産国: <%= @fragrance.country_of_origin %></p>
+<p>Description: <%= @fragrance.description %></p>
+<p>Brand: <%= link_to @fragrance.brand.name, brand_path(@fragrance.brand.id) %></p>
+<p>Perfumer: <%= link_to @fragrance.perfumer.name, fragrance_path(@fragrance.perfumer.id) %></p>
+<p>Name: <%= @fragrance.name %></p>
+<p>Base Price: ¥<%= @fragrance.price.to_s(:delimited) %>-</p>
+<p>Country: <%= @fragrance.country_of_origin %></p>
 <p>URL: <%= @fragrance.URL %></p>
 
 
@@ -17,7 +17,7 @@
 
 
 
-<p><%= link_to '香水一覧', fragrances_path %>
+<p><%= link_to 'Fragrance Index', fragrances_path %>
 <% if current_user.present? && current_user.admin? %>
   <p><%= link_to "香水編集画面", edit_admin_fragrance_path(@fragrance.id) %></p>
 <% end %>
