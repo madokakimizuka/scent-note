@@ -1,10 +1,10 @@
 <h1>My Page</h1>
 
-<% if @user.icon.present? %>
+<div class='usericon'>
   <p><%= image_tag(@user.icon.url) %></p>
-<% end %>
+</div>
 <p>name: <%= @user.name %></p>
-<p>Signature Fragrance: <%= Fragrance.find(@user.signature_fragrance_id).name %></p>
+<p>Signature Fragrance: <%= Fragrance.find(@user.signature_fragrance_id).name if @user.signature_fragrance_id.present? %></p>
 <p>Sex:<%= @user.sex %></p>
 <p>Age:<%= @user.age %></p>
 <p>Live:<%= @user.prefecture %></p>
