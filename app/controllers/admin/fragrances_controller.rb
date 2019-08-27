@@ -10,7 +10,7 @@ class Admin::FragrancesController < ApplicationController
   def create
     @fragrance = Fragrance.new(fragrance_params)
     if @fragrance.save
-      redirect_to fragrance_path(@fragrance.id), notice:"fragrance を作成しました!"
+      redirect_to fragrance_path(@fragrance.id), notice:"Fragrance を作成しました!"
     else
       render 'new'
     end
@@ -20,17 +20,17 @@ class Admin::FragrancesController < ApplicationController
   end
 
   def update
-  if @fragrance.update(fragrance_params)
-    redirect_to fragrance_path(@fragrance.id), notice: "fragranceを編集しました!"
-  else
+    if @fragrance.update(fragrance_params)
+      redirect_to fragrance_path(@fragrance.id), notice: "fragranceを編集しました!"
+    else
     render 'edit'
+    end
   end
-end
 
-def destroy
-  @fragrance.destroy
-  redirect_to fragrances_path, notice:"fragranceを削除しました!"
-end
+  def destroy
+    @fragrance.destroy
+    redirect_to fragrances_path, notice:"fragranceを削除しました!"
+  end
 
 
   private

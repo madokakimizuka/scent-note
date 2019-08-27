@@ -31,12 +31,10 @@
     <%= form.collection_select :masterpiece_id, Fragrance.all, :id, :name, {:include_blank => ''} %>
   </div>
 
-  </div>
   <div class="perfumer_group">
     <%= form.label :country %>
     <%= form.country_select :country, {:include_blank => ''}, id: 'country' %>
   </div>
-
   <%= form.submit "create" %>
 <% end %><br>
 
