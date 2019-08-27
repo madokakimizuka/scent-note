@@ -33,7 +33,7 @@
   <p><%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <% end %>
 
-<p>コメント一覧</p>
+<p>Comments Index</p>
 
 <div id="comments_area">
   <%= render partial: 'comments/index', locals: { comments: @comments, note: @note } %>
