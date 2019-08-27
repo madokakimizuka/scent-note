@@ -38,4 +38,6 @@
 <div id="comments_area">
   <%= render partial: 'comments/index', locals: { comments: @comments, note: @note } %>
 </div>
-<%= render partial: 'comments/form', locals: { comment: @comment, note: @note } %>
+<% if current_user.present? %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, note: @note } %>
+<% end %>
