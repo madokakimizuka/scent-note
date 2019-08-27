@@ -1,10 +1,9 @@
 <h1>Note Details</h1>
-<p>
-  Image:
-  <% if @note.picture.present? %>
+<div class='notepic'>
+  <p>
     <%= image_tag @note.picture.url %>
-  <% end %>
-</p>
+  </p>
+</div>
 <!-- <p> @note.image を右側に表示 </p> -->
 <p>Brand: <%= link_to @note.fragrance.brand.name, fragrance_path(@note.fragrance.brand.id) %></p>
 <p>Fragrance: <%= link_to @note.fragrance.name, fragrance_path(@note.fragrance.id) %></p>
