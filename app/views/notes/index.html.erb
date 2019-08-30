@@ -1,41 +1,33 @@
 <h1>Note Index</h1>
-<div class="index">
-  <p>
-    <%= link_to "Fragrances", fragrances_path %>
-    <%= link_to "Brands", brands_path %>
-    <%= link_to "Perfumers", perfumers_path %>
-  </p>
-</div>
 
-<div class="management">
-  <p>
-    <% if current_user.present? && current_user.admin? %>
-      <%= link_to "ユーザー管理画面", admin_users_path %>
-    <% end %>
-  </p>
-</div>
-
-<table>
-  <tr>
-    <th>Fragrance Name</th>
-    <th>Note</th>
-    <th>UserName</th>
-  </tr>
-<% @notes.each do |note| %>
-  <tr>
-    <td class="note-index_title"><%= note.fragrance.name %></td>
-    <td><%= note.content %></td>
-    <td><%= note.user.name %></td>
-    <td><%= link_to "Details", note_path(note.id) %>
-    <% if current_user.present? %>
-      <td><%= link_to "Edit", edit_note_path(note.id) %></td>
-      <td><%= link_to "Delete", note_path(note.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %></td>
-    <% end %>
-  <tr>
-<% end %>
-</table>
-
-<p><%= paginate @notes %></p>
 <% if current_user.present? %>
   <p><%= link_to "Note Create", new_note_path %></p>
 <% end %>
+
+
+<% @notes.each do |note| %>
+  <div class="note-cell col-md-4 col-xs-6">
+    <p class="fragrance-name"><%= link_to note.fragrance.name, fragrance_path(note.fragrance.id) %></p>
+      <%= link_to note_path(note.id), class: 'note-link' do %>
+　　    <div class="note-picture col-xs-10 col-xs-offset-1">
+      <%= image_tag note.picture.url, class:"img-responsive center-block" %>
+　　    </div>
+　　    <div class="note-character col-xs-12">
+　　      <p class="note-content"><%= note.content %></p>
+　　      <!-- noteへと色々な面における評価のカラムを足した時にここに表示させる -->
+　　    </div>
+      <% end %>
+
+    <div class="note-command col-xs-12">
+      <p><%= note.user.name %></p>
+
+      <%= link_to "Details", note_path(note.id), id: "detail" %>
+      <% if current_user.present? && current_user.id == note.user.id %>
+        <%= link_to "Delete", note_path(note.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %>
+        <%= link_to "Edit", edit_note_path(note.id) %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<p><%= paginate @notes %></p>

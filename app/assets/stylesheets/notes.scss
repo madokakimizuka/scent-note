@@ -1,4 +1,73 @@
-.notepic img {
-  height: 300px; width: 300px;
-  object-fit: contain;
+a {
+  color: #000;
+}
+
+.note-cell {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: auto;
+  font-size: 16px;
+}
+
+.note-cell a {
+  font-size: 16px;
+  color: #000;
+}
+
+.fragrance-name {
+  margin-top: 30px;
+  font-family: "AoyagiSosekiFont2";
+}
+
+.fragrance-name a {
+  font-size: 20px;
+}
+// はみ出る時に三点リーダを置けるといい。
+.note-content {
+  margin-bottom: 15px;
+  height: 60px;
+  overflow: hidden;
+}
+
+#detail {
+  margin-left: 30px;
+}
+
+.note-command a {
+  float: right;
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+
+// 以下show画面
+.note_h1 {
+  float: left;
+}
+
+.user {
+  float: right;
+  margin-top: 35px;
+  font-size: 24px;
+}
+
+.basic_info {
+  margin-top: 20px;
+}
+
+.fragrance a {
+  font-size: 30px;
+  margin-left: 15px;
+}
+
+.memo {
+  margin-top: 50px;
+}
+
+.bottom_row a {
+  margin-left: 20px;
+}
+
+.comments {
+  margin-top: 30px;
 }

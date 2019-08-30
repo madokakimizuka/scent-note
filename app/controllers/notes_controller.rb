@@ -3,7 +3,7 @@ class NotesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
 
   def index
-    @notes = Note.all.page(params[:page]).per(18)
+    @notes = Note.all.order(id: "DESC").page(params[:page]).per(18)
   end
 
   def new

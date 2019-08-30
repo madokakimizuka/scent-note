@@ -7,35 +7,59 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Clicker+Script&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <div class="header clearfix">
-      <div class='logo'>
-        <%= link_to 'Scent Note', root_path %>
+    <div class="header container col-xs-12">
+      <div class="row">
+        <div class='logo col-md-4'>
+          <%= link_to 'Scent Note', root_path %>
+        </div>
+
+        <nav class="col-md-8" >
+          <% if user_signed_in? %>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+            <%= link_to 'Edit Profile', edit_user_registration_path %>
+            <%= link_to 'My Page', user_path(current_user.id) %>
+          <% else %>
+            <%= link_to 'Signup', new_user_registration_path %>
+            <%= link_to 'Login', new_user_session_path %>
+          <% end %>
+        </nav>
       </div>
-      <nav>
-        <% if user_signed_in? %>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-          <%= link_to 'Edit Profile', edit_user_registration_path %>
-          <%= link_to 'My Page', user_path(current_user.id) %>
-        <% else %>
-          <%= link_to 'Signup', new_user_registration_path %>
-          <%= link_to 'Login', new_user_session_path %>
-        <% end %>
-      </nav>
+
+
+      <%# どこにこのリンクを置くか検討集 現在はsidebarに置いてある %>
+      <!-- <div class="index col-md-4"> -->
+          <%#= link_to "Fragrances", fragrances_path %>
+          <%#= link_to "Brands", brands_path %>
+          <%#= link_to "Perfumers", perfumers_path %>
+      <!-- </div> -->
     </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="message container-fluid col-md-offset-3">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
 
-    <div class="container-fluid content">
-      <div><%= yield %></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="sidebar col-md-3 col-xe-2">
+          <%= render "shared/sidebar", brands: @brands %>
+        </div>
+
+
+        <div class="container-fluid main col-xs-8 col-md-offset-3 col-xs-offset-2">
+          <%= yield %>
+        </div>
+      </div>
     </div>
 
 
     <div class="footer">
-      2019 ScentNote
+      ©︎2019 ScentNote
     </div>
 
   </body>

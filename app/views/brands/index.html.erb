@@ -1,11 +1,13 @@
-<h1>Brands</h1>
+<div class='each-index col-md-offset-2'>
+  <h1>Brands</h1>
 
-<% @brands.each do |brand| %>
-  <div>
-    <%= link_to brand.name, brand_path(brand.id) %>
-  </div>
-<% end %>
-<br>
-<% if current_user.present? && current_user.admin? %>
-  <%= link_to "ブランド作成画面", new_admin_brand_path %>
-<% end %>
+  <% @brands.each do |brand| %>
+    <div>
+      <%= link_to brand.name, brand_path(brand.id) %>
+    </div>
+  <% end %>
+  <br>
+  <% if current_user.present? && current_user.admin? %>
+    <%= link_to "ブランド作成画面", new_admin_brand_path %>
+  <% end %>
+</div>

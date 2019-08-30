@@ -1,11 +1,16 @@
-<ul>
-  <% comments.each do |comment| %>
-    <% if comment.id.present? %>
-      <li>
-        <p><%= comment.content %></p>
-        <%# デリートがあると自動でリロードされない %>
-        <%#= link_to "Delete", note_comment_path(comment.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %>
-      </li>
+<div class="comments row">
+  <ul>
+    <% comments.each do |comment| %>
+      <% if comment.id.present? %>
+        <div class="col-md-10">
+          <li>
+            <p><%= comment.content %></p>
+            <%# デリートがあると自動でリロードされない %>
+            <%#= link_to "Delete", note_comment_path(comment.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %>
+          </li>
+          <hr>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</div>

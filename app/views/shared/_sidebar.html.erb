@@ -1,0 +1,40 @@
+<div class="index">
+    <p><%= link_to "Fragrances", fragrances_path %></p>
+    <p><%= link_to "Brands", brands_path %></p>
+    <p><%= link_to "Perfumers", perfumers_path %></p>
+</div>
+
+<div class="management">
+  <p>
+    <% if current_user.present? && current_user.admin? %>
+      <%= link_to "ユーザー管理画面", admin_users_path %>
+    <% end %>
+  </p>
+</div>
+<!-- 以下について -->
+<!-- ここに変数を渡さない方がいいっぽい？？？？ -->
+<!-- まずはそれぞれのindexに置いてみる -->
+
+<!-- <h3>Fragrance Categories</h3> -->
+<!-- <div class="Brand"> -->
+  <!-- <details> -->
+    <!-- <summary>Brand</summary> -->
+      <%# brands.each do |brand| %>
+        <%#= link_to brand.name, brands_path %>
+      <%# end %>
+  <!-- </details> -->
+<!-- </div> -->
+<!-- <div class="Pefumer">
+  <h4>Perfumer</h4>
+</div>
+<div class="Type">
+  <h4>Type</h4>
+</div>
+<div class="Scene">
+  <h4>Scene</h4>
+</div>
+<div class="Weather">
+  <h4>Weather</h4>
+</div> -->
+
+<!-- おしまい -->

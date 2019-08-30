@@ -1,42 +1,55 @@
-<h1>Note Details</h1>
-<div class='notepic'>
-  <p>
-    <%= image_tag @note.picture.url %>
-  </p>
+<h1 class="note_h1">Note Details</h1>
+<%= link_to @note.user.name, user_path(@note.user.id), class: 'user' %>
+<div class="upper_row col-md-12">
+  <div class='notepic col-md-4 col-md-offset-3'>
+    <p>
+      <%= image_tag @note.picture.url, class:"img-responsive center-block" %>
+    </p>
+  </div>
+  <div class="basic_info col-md-5">
+    <p class="brand"><%= link_to @note.fragrance.brand.name, fragrance_path(@note.fragrance.brand.id) %></p>
+    <p class="fragrance"><%= link_to @note.fragrance.name, fragrance_path(@note.fragrance.id) %></p>
+
+    <!-- purchase の情報をおきたい。 -->
+    <!-- 一人のuser, 一つの香水の組み合わせに対して、noteはいくらでも作成できるが、purchaseは一つだけしか作成できないようにしたい。中間テーブル？ -->
+  </div>
 </div>
-<!-- <p> @note.image を右側に表示 </p> -->
-<p>Brand: <%= link_to @note.fragrance.brand.name, fragrance_path(@note.fragrance.brand.id) %></p>
-<p>Fragrance: <%= link_to @note.fragrance.name, fragrance_path(@note.fragrance.id) %></p>
 
-<!-- purchase の情報をおきたい。 -->
-<!-- 一人のuser, 一つの香水の組み合わせに対して、noteはいくらでも作成できるが、purchaseは一つだけしか作成できないようにしたい。中間テーブル？ -->
+<div class="middle_row col-md-12 row">
+  <div class="record notepic col-md-4 col-md-offset-1">
+    <p>Weather: <%= @note.weather %></p>
+    <p>Humidity: <%= @note.humidity %></p>
+    <p>Point: <%= @note.point %></p>
+    <p>Layering: <%= @note.layerd %></p>
+    <p>Scene: <%= @note.scene %></p>
+    <p>Want?: <%= @note.want ? 'Yes' : 'No' %></p>
+    <p>labels:
+      <% if @labels.present? %>
+        <% @labels.each do |label| %>
+          <%= label.name %>
+        <% end %>
+      <% end %>
+    </p>
+  </div>
+  <div class="memo col-md-5 col-md-offset-1">
+    <%= @note.content %>
+  </div>
+</div>
 
-<p>Weather: <%= @note.weather %></p>
-<p>Humidity: <%= @note.humidity %></p>
-<p>Point: <%= @note.point %></p>
-<p>Layering: <%= @note.layerd %></p>
-<p>Scene: <%= @note.scene %></p>
-<p>Want?: <%= @note.want ? 'Yes' : 'No' %></p>
-<p>labels:
-  <% if @labels.present? %>
-    <% @labels.each do |label| %>
-      <%= label.name %>
-    <% end %>
+<div class="bottom_row col-md-3 col-md-offset-8">
+  <% if current_user.present? && current_user.id == @note.user.id %>
+    <%= link_to "Edit", edit_note_path(@note.id) %>
+    <%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
-</p>
-<p>content: <%= @note.content %></p>
-<p>user: <%= link_to @note.user.name, user_path(@note.user.id) %>
-
-<% if current_user.present? && current_user.id == @note.user.id %>
-  <p><%= link_to "Edit Note", edit_note_path(@note.id) %></p>
-  <p><%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-<% end %>
-
-<p>Comments Index</p>
-
-<div id="comments_area">
-  <%= render partial: 'comments/index', locals: { comments: @comments, note: @note } %>
 </div>
-<% if current_user.present? %>
-  <%= render partial: 'comments/form', locals: { comment: @comment, note: @note } %>
-<% end %>
+
+<div class="comments col-md-10 col-md-offset-1">
+  <p>Comments Index</p>
+
+  <div id="comments_area">
+    <%= render partial: 'comments/index', locals: { comments: @comments, note: @note } %>
+  </div>
+  <% if current_user.present? %>
+    <%= render partial: 'comments/form', locals: { comment: @comment, note: @note } %>
+  <% end %>
+</div>
