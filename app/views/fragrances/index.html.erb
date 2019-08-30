@@ -4,12 +4,12 @@
 
   <%= search_form_for @q do |f| %>
     <%# ブランド名でも検索できるようにしたい %>
-    <%= f.label :name, "名称検索" %>
+    <%= f.label :name, "Name Search" %>
     <%= f.search_field :name_cont %>
 
     <%= f.submit "検索" %>
   <% end %>
-
+  <br>
   <% @fragrances.each do |fragrance| %>
     <div>
       <!-- 左のブロック -->
@@ -23,7 +23,8 @@
       ¥<%= fragrance.price.to_s(:delimited) %> -(税別)
     </div>
   <% end %>
-
+  <br>
   <% if current_user.present? && current_user.admin? %>
     <%= link_to "香水作成画面", new_admin_fragrance_path %>
   <% end %>
+</div>
