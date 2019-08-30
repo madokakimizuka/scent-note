@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   has_many :notes
+  has_many :favorites, dependent: :destroy
   belongs_to :fragrance, optional: true
 
   enum sex: %i( woman man )

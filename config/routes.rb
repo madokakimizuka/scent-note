@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :fragrances, only: [:index, :show]
   resources :brands, only: [:index, :show]
   resources :perfumers, only: [:index, :show]
+  resources :favorites, only: [:create, :destroy]
 end

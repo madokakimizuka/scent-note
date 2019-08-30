@@ -2,6 +2,8 @@ class Note < ApplicationRecord
   belongs_to :fragrance
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
   belongs_to :label, optional: true
   validates :fragrance_id, presence:true
 
