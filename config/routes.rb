@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :brands, except: [:show]
     resources :perfumers
   end
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    #他にもカスタマイズするコントローラーがあればここに記述する
+  }
   resources :users, only: [:index, :show]
   root to: 'notes#index'
   resources :notes do

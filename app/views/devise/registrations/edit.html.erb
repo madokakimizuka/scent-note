@@ -4,12 +4,12 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, 'Name' %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, 'Email' %><br />
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
@@ -49,21 +49,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password, 'Pssword' %> <i>(空欄のままならパスワードの変更はしません)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em>最低<%= @minimum_password_length %>文字 </em>
     <% end %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, 'Confirmation' %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %><i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password, 'Current Password' %><i>(パスワード変更時には現在のパスワードが必要です)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
@@ -72,7 +72,7 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>アカウントの削除</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
