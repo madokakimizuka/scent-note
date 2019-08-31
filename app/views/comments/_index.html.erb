@@ -5,11 +5,13 @@
         <div class="col-md-10">
           <li>
             <p><%= comment.content %></p>
-            <%# デリートがあると自動でリロードされない %>
-            <%#= link_to "Delete", note_comment_path(comment.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %>
           </li>
+          <%= link_to "Delete", note_comment_path(comment.note_id, comment.id), method: :delete, remote: true, data: { confirm: "削除してよろしいですか？" } %>
+          <%= link_to "Edit", edit_note_comment_path(comment.note_id, comment.id) %>
           <hr>
         </div>
+
+        <!-- <div id="edit_area"></div> -->
       <% end %>
     <% end %>
   </ul>

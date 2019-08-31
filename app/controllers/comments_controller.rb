@@ -11,16 +11,36 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @note = Note.find(params[:note_id])
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @note = Note.find(params[:note_id])
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to note_path(@note.id), notice: "commentを編集しました!"
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
-    @note = Note.find(params[:id])
-    @comment = Comment.find(params[:note_id])
-    @comment.destroy
-    redirect_to note_path(@note.id), notice:"コメントを削除しました!"
+    @note = Note.find(params[:note_id])
+    @comment = Comment.find(params[:id])
+    respond_to do |format|
+      if @comment.destroy
+        format.js { render :index }
+      else
+        format.html { redirect_to note_path(@note), notice: '投稿できませんでした...' }
+      end
+    end
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:blog_id, :content)
+    params.require(:comment).permit(:note_id, :content)
   end
 end
