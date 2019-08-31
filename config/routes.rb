@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   root to: 'notes#index'
   resources :notes do
     resources :comments
+    resources :favorites, only: [:create, :destroy]
   end
 
   resources :fragrances, only: [:index, :show]
   resources :brands, only: [:index, :show]
   resources :perfumers, only: [:index, :show]
-  resources :favorites, only: [:create, :destroy]
 end

@@ -7,6 +7,10 @@ class Note < ApplicationRecord
   belongs_to :label, optional: true
   validates :fragrance_id, presence:true
 
+  def favorite_user(user_id)
+   favorites.find_by(user_id: user_id)
+  end
+
   enum weather: %i( sunny rainy cloudy stormy snowy foggy)
   enum humidity: %i( high middle low )
   enum point: %i( neck elbow wrist ancle waist back thigh knee heel sole shoulder chest )

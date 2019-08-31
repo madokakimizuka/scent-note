@@ -9,13 +9,13 @@
   <div class="note-cell col-md-4 col-xs-6">
     <p class="fragrance-name"><%= link_to note.fragrance.name, fragrance_path(note.fragrance.id) %></p>
       <%= link_to note_path(note.id), class: 'note-link' do %>
-　　    <div class="note-picture col-xs-10 col-xs-offset-1">
-      <%= image_tag note.picture.url, class:"img-responsive center-block" %>
-　　    </div>
-　　    <div class="note-character col-xs-12">
-　　      <p class="note-content"><%= note.content %></p>
-　　      <!-- noteへと色々な面における評価のカラムを足した時にここに表示させる -->
-　　    </div>
+　　     <div class="note-picture col-xs-10 col-xs-offset-1">
+          <%= image_tag note.picture.url, class:"img-responsive center-block" %>
+　　     </div>
+　　     <div class="note-character col-xs-12">
+　　       <p class="note-content"><%= note.content %></p>
+　　       <!-- noteへと色々な面における評価のカラムを足した時にここに表示させる -->
+　　     </div>
       <% end %>
 
     <div class="note-command col-xs-12">

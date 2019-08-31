@@ -1,48 +1,27 @@
-<h1>My Page</h1>
+<div class='container'>
+  <h1>My Page</h1>
 
-<div class='usericon'>
-  <p><%= image_tag(@user.icon.url) %></p>
+  <div class='usericon'>
+    <p><%= image_tag(@user.icon.url) %></p>
+  </div>
+  <p>name: <%= @user.name %></p>
+  <p>Signature Fragrance: <%= Fragrance.find(@user.signature_fragrance_id).name if @user.signature_fragrance_id.present? %></p>
+  <p>Sex:<%= @user.sex %></p>
+  <p>Age:<%= @user.age %></p>
+  <p>Live:<%= @user.prefecture %></p>
+
+  Favorites
+
+
+
+
+
+  <% if current_user.present? && current_user.id == @user.id %>
+    <p><%= link_to "Edit Profile", edit_user_registration_path  %></p>
+  <% end %>
+  <% if current_user.present? && current_user.id == @user.id %>
+    <%= link_to "Create Note", new_note_path %>
+  <% end %>
+  <%#= link_to "投稿一覧", pictures_path %>
+  <%#= link_to "お気に入り一覧", favorites_path %>
 </div>
-<p>name: <%= @user.name %></p>
-<p>Signature Fragrance: <%= Fragrance.find(@user.signature_fragrance_id).name if @user.signature_fragrance_id.present? %></p>
-<p>Sex:<%= @user.sex %></p>
-<p>Age:<%= @user.age %></p>
-<p>Live:<%= @user.prefecture %></p>
-
-Favorites
-
-
-
-
-
-<% if current_user.present? && current_user.id == @user.id %>
-  <p><%= link_to "Edit Profile", edit_user_registration_path  %></p>
-<% end %>
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-    </tr>
-  </thead>
-
-  <tbody> -->
-    <%# @user.pictures.each do |picture| %>
-      <!-- <tr>
-        <td><%#= picture.title %></td>
-        <td><%#= picture.content %></td>
-        <td><%#= link_to '詳細', picture %></td>
-        <%# if current_user.id == picture.user.id %>
-          <td><%#= link_to '編集', edit_picture_path(picture) %></td>
-          <td><%#= link_to '削除', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%# end %>
-      </tr>
-    <%# end %>
-  </tbody>
-</table>
-<br> -->
-<% if current_user.present? && current_user.id == @user.id %>
-  <%= link_to "Create Note", new_note_path %>
-<% end %>
-<%#= link_to "投稿一覧", pictures_path %>
-<%#= link_to "お気に入り一覧", favorites_path %>
