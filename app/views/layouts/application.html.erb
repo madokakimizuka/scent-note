@@ -14,11 +14,16 @@
   <body>
     <div class="header container col-xs-12">
       <div class="row">
-        <div class='logo col-md-4'>
+        <div class='logo col-md-3'>
           <%= link_to 'Scent Note', root_path %>
         </div>
 
-        <nav class="col-md-8" >
+        <div class="explanation col-md-5">
+          香りを記録していけるアプリです。<br>
+          欲しかった香り、好きだった香りの記録を後で見返すことができます。
+        </div>
+
+        <nav class="col-md-4" >
           <% if user_signed_in? %>
             <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
             <%= link_to 'Edit Profile', edit_user_registration_path %>

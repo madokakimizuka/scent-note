@@ -1,15 +1,9 @@
 <h1 class="note_h1">Note Details</h1>
 
 <%= link_to @note.user.name, user_path(@note.user.id), class: 'user' %>
-<% if current_user.present? %>
-  <%# unless @note.user_id == current_user.id %>
-    <%# if @favorite.present? %>
-      <%# = link_to 'お気に入り解除する', favorite_path(id:   @favorite.id), method: :delete, class: 'btn btn-danger' %>
-    <%# else %>
-      <%# = link_to 'お気に入りする', favorites_path(note_id: @note.id),   method: :post, class: 'btn btn-primary' %>
-    <%# end %>
-  <%# end %>
-<% end %>
+<div id="favorite_buttons_<%= @note.id %>">
+  <%= render partial: 'favorites/favorite', locals: { note: @note} %>
+</div>
 
 <div class="upper_row col-md-12">
   <div class='notepic col-md-4 col-md-offset-3'>

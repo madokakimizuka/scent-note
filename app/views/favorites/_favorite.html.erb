@@ -1,0 +1,9 @@
+<% if current_user.present? %>
+  <% unless @note.user_id == current_user.id %>
+    <% if @favorite.present? %>
+      <%= link_to 'お気に入り解除する', note_favorite_path(id: @favorite.id), method: :delete, class: 'favorite', remote: true %>
+    <% else %>
+      <%= link_to 'お気に入りする', note_favorite_path(note_id: @note.id),   method: :post, class: 'favoite', remote: true %>
+    <% end %>
+  <% end %>
+<% end %>

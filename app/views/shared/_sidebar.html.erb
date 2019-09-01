@@ -1,7 +1,15 @@
+
+<div class="main_function">
+  <% if current_user.present? %>
+    <p><%= link_to "記録する", new_note_path %></p>
+  <% end %>
+</div>
+
 <div class="index">
-    <p><%= link_to "Fragrances", fragrances_path %></p>
-    <p><%= link_to "Brands", brands_path %></p>
-    <p><%= link_to "Perfumers", perfumers_path %></p>
+  <p><%= link_to "香水一覧", fragrances_path %></p>
+  <p><%= link_to "ブランド一覧", brands_path %></p>
+  <p><%= link_to "調香師一覧", perfumers_path %></p>
+  <p><%= link_to "自分の記録一覧", notes_path %>
 </div>
 
 <div class="management">

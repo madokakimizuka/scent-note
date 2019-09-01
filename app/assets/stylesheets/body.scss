@@ -8,18 +8,18 @@ html{
   position: relative;
 }
 
-a {
-  font-family: 'AoyagiSosekiFont2';
+body {
+  font-family: 'Haettenschweiler';
   font-size: 20px;
 }
 
-body {
-  font-family: 'AoyagiSosekiFont2';
-  font-size: 20px;
+form {
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 input {
-  font-family: 'Haettenschweiler'
+  margin-bottom: 10px;
 }
 
 .content {
@@ -31,7 +31,7 @@ input {
   height: 70px;
   z-index: 1;
   background-size: cover;
-  background-color: #f0fff0;
+  background-color: #f4fff9;
 }
 
 .header a {
@@ -42,13 +42,18 @@ input {
   float: right;
 }
 
-// .message {
-//   margin-top: 70px;
-// }
+.explanation {
+  font-size: 16px;
+  margin-top: 20px;
+}
 
 h1 {
   font-size: 40px;
   font-family: "Clicker Script";
+}
+
+.logo {
+  height: 70px;
 }
 
 .logo a {
@@ -60,22 +65,33 @@ h1 {
   font-family: "Clicker Script";
 }
 
-// .header におくか、 .sidebar におくか検討。今は .sidebar
-// .sidebar に変数を渡してカテゴリーを分けて表示するなら .header におく。
 .sidebar .index a {
-  // margin-left: 10px;　　.headerに置くとき
-  margin-top: 0px;
-  // float: left;　　.header に置くとき
   text-align: center;
   color: #000;
-  font-size: 30px;
-  font-family: "Clicker Script";
+  font-size: 23px;
+  font-family: "AoyagiSosekiFont2";
+}
+
+.main_function {
+  margin-top: 20px;
+  font-family: "AoyagiSosekiFont2";
+  font-size: 27px;
+}
+
+.main_function a {
+  color: #000;
+}
+
+.sidebar .index {
+  margin-top: 20px;
 }
 
 .sidebar {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 70px;
+  height: 100%;
   position: fixed;
+  // background-color: #f9f4ff;
 }
 
 .management {

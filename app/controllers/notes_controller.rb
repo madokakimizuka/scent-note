@@ -4,6 +4,13 @@ class NotesController < ApplicationController
 
   def index
     @notes = Note.all.order(id: "DESC").page(params[:page]).per(18)
+
+    # want が true のノートだけ取り出したい。
+    # @notes = current_user.notes
+    # もし @notes の中に want が true の note があれば
+
+
+
   end
 
   def new

@@ -1,14 +1,14 @@
 class FavoritesController < ApplicationController
+  before_action :set_note
+  
   def create
-    @like = Favorite.create(user_id: current_user.id, note_id: params[:post_id])
-    @likes = Like.where(note_id: params[:note_id])
-    @note.reload
+    favorite = current_user.favorites.build(note_id: params[:note_id])
+    favorite.save
   end
 
   def destroy
-    favorite = current_user.favorites.find_by(id: params[:id]).destroy
-    @favorites = Favorite.where(note_id: params[:note_id])
-    @note.reload
+    favorite = Favorite.find_by(note_id: params[:note_id], user_id: current_user.id)
+    favorite.destroy
   end
 
   private

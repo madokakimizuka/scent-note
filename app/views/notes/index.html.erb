@@ -1,14 +1,8 @@
 <h1>Note Index</h1>
-
-<% if current_user.present? %>
-  <p><%= link_to "Note Create", new_note_path %></p>
-<% end %>
-
-
 <% @notes.each do |note| %>
   <div class="note-cell col-md-4 col-xs-6">
-    <p class="fragrance-name"><%= link_to note.fragrance.name, fragrance_path(note.fragrance.id) %></p>
-      <%= link_to note_path(note.id), class: 'note-link' do %>
+    <%= link_to note_path(note.id), class: 'note-link' do %>
+      <p class="fragrance-name"><%= note.fragrance.name %></p>
 　　     <div class="note-picture col-xs-10 col-xs-offset-1">
           <%= image_tag note.picture.url, class:"img-responsive center-block" %>
 　　     </div>
@@ -21,10 +15,10 @@
     <div class="note-command col-xs-12">
       <p><%= note.user.name %></p>
 
-      <%= link_to "Details", note_path(note.id), id: "detail" %>
+      <%= link_to "詳細", note_path(note.id), id: "detail" %>
       <% if current_user.present? && current_user.id == note.user.id %>
-        <%= link_to "Delete", note_path(note.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %>
-        <%= link_to "Edit", edit_note_path(note.id) %>
+        <%= link_to "削除", note_path(note.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %>
+        <%= link_to "編集", edit_note_path(note.id) %>
       <% end %>
     </div>
   </div>
