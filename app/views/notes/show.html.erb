@@ -1,8 +1,9 @@
 <h1 class="note_h1">Note Details</h1>
 
 <%= link_to @note.user.name, user_path(@note.user.id), class: 'user' %>
-<div id="favorite_buttons_<%= @note.id %>">
-  <%= render partial: 'favorites/favorite', locals: { note: @note} %>
+
+<div id="favorite_btn">
+ <%= render 'favorite', note: @note, favorite: @favorite %>
 </div>
 
 <div class="upper_row col-md-12">

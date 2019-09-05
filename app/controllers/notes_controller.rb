@@ -33,9 +33,9 @@ class NotesController < ApplicationController
     end
     @comments = @note.comments
     @comment = @note.comments.build
-    if current_user.present?
-      @favorite = current_user.favorites.find_by(note_id: @note.id)
-    end
+    # if current_user.present? && @note.favorite?(@note, current_user)
+    #   @favorite = current_user.favorites.find_by(note_id: @note.id)
+    # end
   end
 
   def edit

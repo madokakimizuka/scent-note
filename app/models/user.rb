@@ -6,7 +6,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  has_many :notes
+  has_many :notes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   belongs_to :fragrance, optional: true
 
@@ -23,8 +24,10 @@ class User < ApplicationRecord
   private
 
   def left_admin_user
+    binding.pry
     if User.select('admin').where('admin = true').length == 1
       throw(:abort)
     end
   end
+
 end
