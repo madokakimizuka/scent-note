@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :notes do
     resources :comments
     resources :favorites, only: [:create, :destroy]
+    collection do # member do ?　コントローラでidを指定すればいい？
+      get :my_index
+    end
   end
 
   resources :fragrances, only: [:index, :show]

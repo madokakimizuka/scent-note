@@ -9,7 +9,9 @@
   <p><%= link_to "香水一覧", fragrances_path %></p>
   <p><%= link_to "ブランド一覧", brands_path %></p>
   <p><%= link_to "調香師一覧", perfumers_path %></p>
-  <p><%= link_to "自分の記録一覧", notes_path %>
+  <% if current_user.present? %>
+    <p><%= link_to "自分の記録一覧", my_index_notes_path %>
+  <% end %>
 </div>
 
 <div class="management">
