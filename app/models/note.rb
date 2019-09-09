@@ -7,8 +7,8 @@ class Note < ApplicationRecord
   belongs_to :label, optional: true
   validates :fragrance_id, presence:true
 
-  def favorite_user(user_id)
-   favorites.find_by(user_id: user_id)
+  def favorite?(note, user)
+    note.favorites.find_by(user_id: user.id)
   end
 
   enum weather: %i( sunny rainy cloudy stormy snowy foggy)

@@ -8,9 +8,6 @@ class NotesController < ApplicationController
     # want が true のノートだけ取り出したい。
     # @notes = current_user.notes
     # もし @notes の中に want が true の note があれば
-
-
-
   end
 
   def new
