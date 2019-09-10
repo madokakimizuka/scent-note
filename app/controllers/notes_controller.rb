@@ -14,6 +14,10 @@ class NotesController < ApplicationController
     @notes = current_user.notes.all.order(id: "DESC").page(params[:page]).per(18)
   end
 
+  def favorite_index
+    @notes = current_user.favorite_notes.order(id: "DESC").page(params[:page]).per(18)
+  end
+
   def new
     @note = Note.new
   end

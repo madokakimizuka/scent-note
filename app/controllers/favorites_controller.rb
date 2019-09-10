@@ -1,19 +1,31 @@
 class FavoritesController < ApplicationController
-  before_action :set_note
-  
+
+
   def create
-    favorite = current_user.favorites.build(note_id: params[:note_id])
-    favorite.save
-  end
-
-  def destroy
-    favorite = Favorite.find_by(note_id: params[:note_id], user_id: current_user.id)
-    favorite.destroy
-  end
-
-  private
-
-  def set_note
     @note = Note.find(params[:note_id])
+    @favorite = current_user.favorites.create(note_id: params[:note_id])
+    # @favorite = @note.favorites.build(favorite_params)
+    respond_to do |format|
+      if @favorite.save
+        format.js { render :index }
+      else
+        format.html { redirect_to note_path(@note), notice: 'お気に入りできませんでした' }
+      end
+    end
   end
+   
+  def destroy
+    @note = Note.find(params[:note_id])
+    @favorite = current_user.favorites.find_by(id: params[:id])
+    # @note = Note.find(params[:id])
+    # @favorite = Favorite.find(params[:id])
+    respond_to do |format|
+      if @favorite.destroy
+        format.js { render :index }
+      else
+        format.html { redirect_to note_path(@note), notice: 'お気に入りを外せませんでした'}
+      end
+    end
+  end
+
 end

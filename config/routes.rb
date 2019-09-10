@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
     collection do # member do ?　コントローラでidを指定すればいい？
       get :my_index
+      get :favorite_index
     end
   end
 

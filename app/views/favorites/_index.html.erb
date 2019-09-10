@@ -1,0 +1,11 @@
+<% if current_user.present? %>
+  <% if @note.favorite?(@note, current_user) %>
+    <div class="like_off">
+      <%= link_to '❤︎', note_favorite_path(note_id: @note.id, id: @favorite.id), method: :delete, remote: true, class: "like_off_btn" unless note.user_id == current_user.id %>
+    </div>
+  <% else %>
+    <div class="like_on">
+      <%= link_to '♡', note_favorites_path(note.id), method: :post, remote: true, class: "like_on_btn" unless @note.id == current_user.id %>
+    </div>
+  <% end %>
+<% end %>

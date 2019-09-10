@@ -10,7 +10,8 @@
   <p><%= link_to "ブランド一覧", brands_path %></p>
   <p><%= link_to "調香師一覧", perfumers_path %></p>
   <% if current_user.present? %>
-    <p><%= link_to "自分の記録一覧", my_index_notes_path %>
+    <p><%= link_to "自分の記録一覧", my_index_notes_path %></p>
+    <p><%= link_to "お気に入りの記録一覧", favorite_index_notes_path %>
   <% end %>
 </div>
 

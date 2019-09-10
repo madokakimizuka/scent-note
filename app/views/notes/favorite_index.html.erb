@@ -1,0 +1,27 @@
+<h1>Favorites Index</h1>
+<% @notes.each do |note| %>
+  <div class="note-cell col-md-4 col-xs-6">
+    <%= link_to note_path(note.id), class: 'note-link' do %>
+      <p class="fragrance-name"><%= note.fragrance.name %></p>
+　　     <div class="note-picture col-xs-10 col-xs-offset-1">
+          <%= image_tag note.picture.url, class:"img-responsive center-block" %>
+　　     </div>
+　　     <div class="note-character col-xs-12">
+　　       <p class="note-content"><%= note.content %></p>
+　　       <!-- noteへと色々な面における評価のカラムを足した時にここに表示させる -->
+　　     </div>
+      <% end %>
+
+    <div class="note-command col-xs-12">
+      <p><%= note.user.name %></p>
+
+      <%= link_to "詳細", note_path(note.id), id: "detail" %>
+      <% if current_user.present? && current_user.id == note.user.id %>
+        <%= link_to "削除", note_path(note.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %>
+        <%= link_to "編集", edit_note_path(note.id) %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<p><%= paginate @notes %></p>

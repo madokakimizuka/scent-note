@@ -7,7 +7,9 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   has_many :notes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorite_notes, through: :favorites, source: :note
   belongs_to :fragrance, optional: true
 
   enum sex: %i( woman man )
@@ -23,8 +25,10 @@ class User < ApplicationRecord
   private
 
   def left_admin_user
+    binding.pry
     if User.select('admin').where('admin = true').length == 1
       throw(:abort)
     end
   end
+
 end
