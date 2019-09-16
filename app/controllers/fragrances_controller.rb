@@ -3,7 +3,7 @@ class FragrancesController < ApplicationController
     # @fragrances = Fragrance.all
     # user が want を true にしている香水を一覧に出したい。
     @q = Fragrance.ransack(params[:q])
-    @fragrances = @q.result(distinct: true)
+    @fragrances = @q.result(distinct: true).page(params[:page]).per(18)
 
   end
 

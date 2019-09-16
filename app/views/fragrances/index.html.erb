@@ -1,30 +1,35 @@
-<div class="each-index col-md-offset-2">
+<div class="each-index">
   <h1>Fragrance Index</h1>
 
+  <div class="fragrance-search col-xs-offset-2">
+    <%= search_form_for @q do |f| %>
+      <%# ブランド名でも検索できるようにしたい %>
+      <%= f.label :name, "Name Search" %>
+      <%= f.search_field :name_cont %>
 
-  <%= search_form_for @q do |f| %>
-    <%# ブランド名でも検索できるようにしたい %>
-    <%= f.label :name, "Name Search" %>
-    <%= f.search_field :name_cont %>
-
-    <%= f.submit "検索" %>
-  <% end %>
+      <%= f.submit "検索" %>
+    <% end %>
+  </div>
   <br>
   <% @fragrances.each do |fragrance| %>
-    <div>
-      <!-- 左のブロック -->
-      <% if fragrance.image.present? %>
-        <%= image_tag fragrance.image.url %>
-      <% end %>
-      <!-- 右のブロック -->
-      <%= fragrance.brand.name %>
-      <%= link_to fragrance.name, fragrance_path(fragrance.id) %>
-      <%= fragrance.release %>
-      ¥<%= fragrance.price.to_s(:delimited) %> -(税別)
+    <div class="fragrance-cell col-md-4 col-xs-6">
+      <div class="fragrances-picture col-md-6">
+        <!-- 左のブロック -->
+          <%= image_tag fragrance.image.url, class:"img-responsive center-block" %>
+      </div>
+      <div class="fragrances-rigth col-md-offset-6">
+        <!-- 右のブロック -->
+        <p><%= fragrance.brand.name %></p>
+        <p><%= link_to fragrance.name, fragrance_path(fragrance.id) %></p>
+        <p><%= fragrance.release %></p>
+        <p>¥<%= fragrance.price.to_s(:delimited) %> -(税別)</p>
+      </div>
     </div>
   <% end %>
   <br>
+
+  <p><%= paginate @fragrances %>
   <% if current_user.present? && current_user.admin? %>
-    <%= link_to "香水作成画面", new_admin_fragrance_path %>
+    <p class="col-xs-12"><%= link_to "香水作成画面", new_admin_fragrance_path %></p>
   <% end %>
 </div>
