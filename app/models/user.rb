@@ -25,7 +25,6 @@ class User < ApplicationRecord
   private
 
   def left_admin_user
-    binding.pry
     if User.select('admin').where('admin = true').length == 1
       throw(:abort)
     end
