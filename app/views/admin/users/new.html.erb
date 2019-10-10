@@ -1,43 +1,45 @@
-<h1>ユーザー作成</h1>
-<%= form_with(model: [:admin, @user], local: true) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @user.errors.count "error" %>prohibited this property from being saved:</h2>
-      <ul>
+<div class="col-xs-10 col-xs-offset-1">
+  <h1>ユーザー作成</h1>
+  <%= form_with(model: [:admin, @user], local: true) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @user.errors.count "error" %>prohibited this property from being saved:</h2>
+        <ul>
 
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <div class="user_admin">
+      <%= f.label :name %>
+      <%= f.text_field :name, id: 'name' %>
     </div>
-  <% end %>
+
+    <div class="user_admin">
+      <%= f.label :email %>
+      <%= f.text_field :email, id: 'email' %>
+    </div>
+
+    <div class="user_admin">
+      <%= f.label :admin %>
+      <%= f.check_box :admin, id: 'admin' %>
+    </div>
+
+    <div class="user_admin">
+      <%= f.label :password %>
+      <%= f.text_field :password, id: 'password' %>
+    </div>
+
+    <div class="user_admin">
+      <%= f.label :password_confirmation %>
+      <%= f.text_field :password_confirmation, id: 'password_confirmation' %>
+    </div>
   
-  <div class="user_admin">
-    <%= f.label :name %>
-    <%= f.text_field :name, id: 'name' %>
-  </div>
+    <%= f.submit 'ユーザー作成' %>
+  <% end %>
 
-  <div class="user_admin">
-    <%= f.label :email %>
-    <%= f.text_field :email, id: 'email' %>
-  </div>
-
-  <div class="user_admin">
-    <%= f.label :admin %>
-    <%= f.check_box :admin, id: 'admin' %>
-  </div>
-
-  <div class="user_admin">
-    <%= f.label :password %>
-    <%= f.text_field :password, id: 'password' %>
-  </div>
-
-  <div class="user_admin">
-    <%= f.label :password_confirmation %>
-    <%= f.text_field :password_confirmation, id: 'password_confirmation' %>
-  </div>
-
-  <%= f.submit 'ユーザー作成' %>
-<% end %>
-
-<%= link_to 'ユーザー一覧', admin_users_path %>
+  <%= link_to 'ユーザー一覧', admin_users_path %>
+</div>

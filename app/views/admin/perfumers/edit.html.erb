@@ -1,5 +1,5 @@
-<h1>Edit Perfumer</h1>
-
-<%= render 'form' %>
-
-<%= link_to "Delete", admin_perfumer_path(@perfumer.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %>
+<div class="col-xs-10 col-xs-offset-1">
+  <h1>Edit Perfumer</h1>
+  <%= render 'form' %>
+  <%= link_to "Delete", admin_perfumer_path(@perfumer.id), method: :delete, data: { confirm: "削除してよろしいですか？" } %>
+</div>
